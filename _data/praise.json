@@ -1,0 +1,21 @@
+{
+  "title": "Praise and Results | LGPH",
+  "description": "Praise and results for Long Gone Production Home and Zoey Rose Best.",
+  "big_quote": "\"When [Zoey] takes on a project, she isn't satisfied until everything is completed to perfection. She has a natural ability to think outside the box and inspire those around her towards greatness.\"",
+  "praise_images": {
+    "logo": { "src": "/assets/img/praise-habitat-logo.jpg", "alt": "The logo for Habitat for Humanity" },
+    "letter": { "src": "/assets/img/praise-habitat-letter.jpg", "alt": "A letter of recognition from the director of Habitat for Humanity" }
+  },
+  "press": {
+    "heading": "On Women in Leadership Positions...",
+    "byline": "Edited by Zoey Best, LGPH",
+    "embed_url": "https://www.youtube-nocookie.com/embed/rVeV7HMBtrY",
+    "embed_title": "Women in Leadership, 2020",
+    "quote_html": "\"A fascinating, short, and succinct conversation with Victoria Morgan, a former San Francisco Ballet who is artistic director and CEO of Cincinnati Ballet and Wendy Whelan, for thirty years principal ballerina with New York City Ballet and now the company&rsquo;s co-associate artistic director, is worthy of watching.\"",
+    "source_html": "<a href=\"https://artsmeme.com/2020/10/15/ballets-rare-female-leaders-discuss-women-in-ballet/\" target=\"_blank\" rel=\"noopener\">Artsmeme.com</a>, 2020"
+  },
+  "pictured": {
+    "image": { "src": "/assets/img/praise-zoey-on-set-lithium.jpg", "alt": "Zoey, a female, queer filmmaker looking into a videocamera" },
+    "caption_html": "Pictured left:<br>Zoey Best on set of<br>her short film 'Lithium'"
+  }
+}

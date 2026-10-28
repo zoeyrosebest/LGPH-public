@@ -1,0 +1,9 @@
+---
+layout: base.njk
+permalink: /404.html
+eleventyComputed:
+  title: "{{ notfound.title }}"
+  description: "{{ notfound.description }}"
+---
+<h1 class="page-heading">{{ notfound.heading }}</h1>
+<p class="center">{{ notfound.body_html | safe }}</p>

@@ -1,0 +1,30 @@
+---
+layout: base.njk
+permalink: /index.html
+eleventyComputed:
+  title: "{{ home.title }}"
+  description: "{{ home.description }}"
+  after_layout: |
+    <section class="band">
+      <div class="band-inner">
+        <img class="eye" src="/assets/img/hand-drawn-eye.png" alt="Hand drawn eye" width="120">
+        {% for p in home.band.intro_paragraphs %}<p>{{ p }}</p>
+        {% endfor %}<hr>
+        <div class="video-grid">
+          {% for v in home.band.videos %}<div class="video"><iframe src="{{ v.embed_url }}" title="{{ v.label }}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+          {% endfor %}</div>
+        <hr>
+        <p class="center"><a class="button button-light" href="{{ home.band.cta_link }}">{{ home.band.cta_label }}</a></p>
+      </div>
+    </section>
+---
+<ul class="honeycomb">
+{%- for hex in home.honeycomb %}
+  <li class="hex">{% if hex.link %}<a href="{{ hex.link }}" target="_blank" rel="noopener"><img src="{{ hex.image }}" alt="{{ hex.title }}" loading="lazy"><span>{{ hex.title }}</span></a>{% else %}<img src="{{ hex.image }}" alt="{{ hex.title }}" loading="lazy"><span>{{ hex.title }}</span>{% endif %}</li>
+{%- endfor %}
+</ul>
+
+<blockquote class="testimonial">
+  <p>&ldquo;{{ home.testimonial.quote }}&rdquo;</p>
+  <footer>{{ home.testimonial.author }}</footer>
+</blockquote>

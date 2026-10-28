@@ -1,0 +1,16 @@
+---
+layout: base.njk
+permalink: /store/index.html
+eleventyComputed:
+  title: "{{ store.title }}"
+  description: "{{ store.description }}"
+---
+<!-- NOTE: this page was hidden from the menu on Wix (reachable only by its link). It is kept hidden here too. -->
+<h1 class="page-heading">{{ store.heading }}</h1>
+<p class="center">{{ store.intro }}</p>
+<div class="gallery store-grid">
+{%- for item in store.items %}
+  <figure><a href="{{ item.src }}" class="lightbox"><img src="{{ item.src }}" alt="{% if item.caption %}{{ item.caption }}{% else %}Gallery image{% endif %}" loading="lazy">{% if item.caption %}<figcaption>{{ item.caption }}</figcaption>{% endif %}</a></figure>
+{%- endfor %}
+</div>
+<p class="center"><a class="button" href="{{ store.cta_link }}">{{ store.cta_label }}</a></p>

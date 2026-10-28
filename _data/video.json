@@ -1,0 +1,51 @@
+{
+  "title": "Select Video | LGPH",
+  "description": "Selected videos, video art and PSAs by Zoey Rose Best for Long Gone Production Home.",
+  "heading_html": "Selected Videos by Zoey Rose Best for<br>Long Gone Production Home",
+  "works": [
+    {
+      "embed_url": "https://www.youtube-nocookie.com/embed/yWJ_2PRcVT8",
+      "embed_title": "Fire Fly, 2020",
+      "video_file": "",
+      "preserve_todo": false,
+      "work_title": "Fire Fly, 2020",
+      "paragraphs": [
+        "Video Art shot with a drone by Zoey Rose Best",
+        "Featuring Lauren Lynch."
+      ]
+    },
+    {
+      "embed_url": "https://www.youtube-nocookie.com/embed/JLx3OmIOMII",
+      "embed_title": "Woodstock Simulation, 2017",
+      "video_file": "",
+      "preserve_todo": false,
+      "work_title": "Woodstock Simulation, 2017",
+      "paragraphs": [
+        "Set building and Cinematography in an indoor studio by Zoey Rose Best",
+        "Featuring Gabbi Febbriao and Katie McGee"
+      ]
+    },
+    {
+      "embed_url": "https://www.youtube-nocookie.com/embed/CWtSTDxhQEk",
+      "embed_title": "Anti-Littering PSA, 2016",
+      "video_file": "",
+      "preserve_todo": false,
+      "work_title": "Anti-Littering PSA, 2016",
+      "paragraphs": [
+        "For Ramapo College of NJ, Created by Zoey Rose Best",
+        "Featuring Raechel Sontag"
+      ]
+    },
+    {
+      "embed_url": "https://www.youtube-nocookie.com/embed/j_N2FZkyHX0",
+      "embed_title": "Privilege PSA, 2016",
+      "video_file": "",
+      "preserve_todo": false,
+      "work_title": "Privilege PSA, 2016",
+      "paragraphs": [
+        "For Ramapo College of NJ created by Zoey Rose Best",
+        "Featuring Katie Mcgee, Kira Abrams, Danielle Rogers, and Zoey Best"
+      ]
+    }
+  ]
+}

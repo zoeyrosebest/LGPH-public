@@ -1,0 +1,36 @@
+---
+layout: base.njk
+permalink: /about/index.html
+eleventyComputed:
+  title: "{{ about.title }}"
+  description: "{{ about.description }}"
+---
+<div class="about-photos">
+  {%- for p in about.photos %}
+  <img src="{{ p.src }}" alt="{{ p.alt }}">
+  {%- endfor %}
+</div>
+
+<section class="skills">
+  {%- for sec in about.skill_sections %}
+  <h2>{{ sec.heading }}</h2>
+  {%- for sub in sec.subsections %}
+  {%- if sub.subheading %}
+  <h3>{{ sub.subheading }}</h3>
+  {%- endif %}
+  <p>{{ sub.body_html | safe }}</p>
+  {%- endfor %}
+  {%- endfor %}
+</section>
+
+<section class="worked-with">
+  <p>{{ about.worked_with.intro_html | safe }}</p>
+  <ul>
+    {%- for c in about.worked_with.clients %}
+    <li>{{ c | safe }}</li>
+    {%- endfor %}
+  </ul>
+  <p>{{ about.worked_with.footer_html | safe }}</p>
+</section>
+
+<p class="center"><a class="button" href="{{ about.cta_link }}">{{ about.cta_label }}</a></p>

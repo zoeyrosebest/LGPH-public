@@ -1,0 +1,52 @@
+{
+  "title": "Long Gone Production Home | Indie Film Editing, Feminism, Creative Content, Pro Bono Work Available",
+  "description": "A NJ-based production company specializing in visual and artistic communications. Design work, videography and photography, internal and external project development.",
+  "honeycomb": [
+    { "image": "/assets/img/home-01-shooting-lithium.jpg", "title": "Shooting Lithium", "link": "https://youtu.be/0ye3DSUZLmY" },
+    { "image": "/assets/img/home-02-video-art-stock-footage.jpg", "title": "Video Art Stock Footage", "link": "" },
+    { "image": "/assets/img/home-03-jackie-fire-hoop.jpg", "title": "Jackie Fire Hoop", "link": "" },
+    { "image": "/assets/img/home-04-can-t-do-this-again-music-video.jpg", "title": "Can't Do This Again Music Video", "link": "https://www.youtube.com/watch?v=zfw4_4d3Hgg" },
+    { "image": "/assets/img/home-05-firefly-video-art.jpg", "title": "Firefly Video Art", "link": "https://youtu.be/yWJ_2PRcVT8" },
+    { "image": "/assets/img/home-06-woodland-dance.jpg", "title": "Woodland Dance", "link": "" },
+    { "image": "/assets/img/home-07-firefly.jpg", "title": "Firefly", "link": "https://youtu.be/yWJ_2PRcVT8" },
+    { "image": "/assets/img/home-08-experimental-drone-footage-self.jpg", "title": "Experimental Drone Footage- Self", "link": "" },
+    { "image": "/assets/img/home-09-video-art-stock-footage.jpg", "title": "Video Art Stock Footage", "link": "" },
+    { "image": "/assets/img/home-10-video-art-stock-footage.jpg", "title": "Video Art Stock Footage", "link": "" },
+    { "image": "/assets/img/home-11-can-t-do-this-again-music-video.jpg", "title": "Can't Do This Again Music Video", "link": "https://www.youtube.com/watch?v=zfw4_4d3Hgg" },
+    { "image": "/assets/img/home-12-video-art-stock-footage.jpg", "title": "Video Art Stock Footage", "link": "" },
+    { "image": "/assets/img/home-13-experimental-drone-footage.jpg", "title": "Experimental Drone Footage", "link": "" },
+    { "image": "/assets/img/home-14-video-art-short.jpg", "title": "Video Art short", "link": "" },
+    { "image": "/assets/img/home-15-experimental-drone-footage.jpg", "title": "Experimental Drone Footage", "link": "" },
+    { "image": "/assets/img/home-16-hiking-podcast.jpg", "title": "Hiking Podcast", "link": "" },
+    { "image": "/assets/img/home-17-experimental-drone-footage-self.jpg", "title": "Experimental Drone Footage- Self", "link": "" },
+    { "image": "/assets/img/home-18-hiking-podcast.jpg", "title": "Hiking Podcast", "link": "" },
+    { "image": "/assets/img/home-19-shooting-lithium.jpg", "title": "Shooting 'Lithium'", "link": "https://youtu.be/0ye3DSUZLmY" },
+    { "image": "/assets/img/home-20-desire-short.jpg", "title": "Desire Short", "link": "" },
+    { "image": "/assets/img/home-21-experimental-drone-footage.jpg", "title": "Experimental Drone Footage", "link": "" },
+    { "image": "/assets/img/home-22-woodland-dance.jpg", "title": "Woodland Dance", "link": "" },
+    { "image": "/assets/img/home-23-woodland-dance.jpg", "title": "Woodland Dance", "link": "" },
+    { "image": "/assets/img/home-24-woodland-dance.jpg", "title": "Woodland Dance", "link": "" },
+    { "image": "/assets/img/home-25-self-portrait-project.jpg", "title": "Self Portrait Project", "link": "" },
+    { "image": "/assets/img/home-26-video-art-self-portrait.jpg", "title": "Video Art Self Portrait", "link": "" },
+    { "image": "/assets/img/home-27-woodstock-vibrations.jpg", "title": "Woodstock Vibrations", "link": "https://youtu.be/JLx3OmIOMII" },
+    { "image": "/assets/img/home-28-experimental-drone-footage-self.jpg", "title": "Experimental Drone Footage- Self", "link": "" }
+  ],
+  "testimonial": {
+    "quote": "Your film truly captured the essence of what the Habitat program is about... [It] tells our story in a way words cannot really articulate",
+    "author": "-Blair Schleicher Bravo, CEO Morris Habitat for Humanity"
+  },
+  "band": {
+    "intro_paragraphs": [
+      "A not-for-profit production company specializing in visual and artistic communications. LGPH utilizes modern communication tools through design work, videography and photography, internal and external project development, and artistic enthusiasm.",
+      "The union of artistic exploration, activism, and conscious communication is the paramount of this production \"home\"."
+    ],
+    "videos": [
+      { "embed_url": "https://www.youtube-nocookie.com/embed/Dy0adCGKliU", "label": "LGPH video 1" },
+      { "embed_url": "https://www.youtube-nocookie.com/embed/tfq2zosusrU", "label": "LGPH video 2" },
+      { "embed_url": "https://www.youtube-nocookie.com/embed/pPqJx5ync2A", "label": "LGPH video 3" },
+      { "embed_url": "https://www.youtube-nocookie.com/embed/AKd5jn-PpQ8", "label": "LGPH video 4" }
+    ],
+    "cta_link": "/about/",
+    "cta_label": "Learn More About Me"
+  }
+}

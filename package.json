@@ -1,0 +1,19 @@
+{
+  "name": "lgphome-site",
+  "version": "1.0.0",
+  "description": "Long Gone Production Home website (Eleventy + TinaCMS)",
+  "private": true,
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve",
+    "tina:dev": "tinacms dev -c \"npm run serve\"",
+    "tina:build": "tinacms build && eleventy"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "tinacms": "^2.5.0"
+  },
+  "devDependencies": {
+    "@tinacms/cli": "^1.9.0"
+  }
+}

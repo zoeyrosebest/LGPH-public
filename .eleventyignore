@@ -1,0 +1,10 @@
+node_modules
+_site
+tina
+content
+README.md
+package.json
+package-lock.json
+.eleventy.js
+.eleventyignore
+netlify.toml

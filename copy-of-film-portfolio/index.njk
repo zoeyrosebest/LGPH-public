@@ -1,0 +1,11 @@
+---
+layout: base.njk
+permalink: /copy-of-film-portfolio/index.html
+eleventyComputed:
+  title: "{{ video.title }}"
+  description: "{{ video.description }}"
+---
+{% from "work-list.njk" import work_articles %}
+<h1 class="page-heading">{{ video.heading_html | safe }}</h1>
+<img class="heart" src="/assets/img/hand-drawn-heart.png" alt="" width="84">
+{{ work_articles(video.works) }}

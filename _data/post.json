@@ -1,0 +1,26 @@
+{
+  "title": "Select Post-Production | LGPH",
+  "description": "Select post-production and editing projects by Zoey Rose Best for Long Gone Production Home.",
+  "heading_html": "Select Projects Edited by Zoey Rose Best<br>for Long Gone Production Home",
+  "works": [
+    {
+      "embed_url": "https://www.youtube-nocookie.com/embed/rVeV7HMBtrY",
+      "embed_title": "Women in Leadership, 2020",
+      "video_file": "",
+      "preserve_todo": false,
+      "work_title": "Women in Leadership, 2020",
+      "paragraphs": [
+        "Edited by Zoey Rose Best.",
+        "Featuring Wendy Whelan, Associate Artistic Director of New York City Ballet, and Victoria Morgan, Artistic Director of Cincinnati Ballet. Led by Kathryn Roszak, Artistic Director of Danse Lumi&egrave;re. This conversation highlights the need for women in leadership roles in the arts, in production, and in corporate positions."
+      ]
+    },
+    {
+      "embed_url": "",
+      "embed_title": "Why Hire Post-Production Help?",
+      "video_file": "/assets/video/why-hire-post-production-help.mp4",
+      "preserve_todo": false,
+      "work_title": "Why Hire Post-Production Help?",
+      "paragraphs": []
+    }
+  ]
+}

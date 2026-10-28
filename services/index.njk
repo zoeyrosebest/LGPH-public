@@ -1,0 +1,27 @@
+---
+layout: base.njk
+permalink: /services/index.html
+eleventyComputed:
+  title: "{{ services.title }}"
+  description: "{{ services.description }}"
+---
+<div class="services">
+  <div class="services-main">
+    {%- for sec in services.main_sections %}
+    <h2>{{ sec.heading }}</h2>
+    <ul class="service-list">
+    {%- for item in sec.items %}
+    <li>{% if item.link %}<a href="{{ item.link }}" target="_blank" rel="noopener"><span class="play" aria-hidden="true"></span><h3>{{ item.title | safe }}</h3><p>{{ item.blurb | safe }}</p></a>{% else %}<span class="play" aria-hidden="true"></span><h3>{{ item.title | safe }}</h3><p>{{ item.blurb | safe }}</p>{% endif %}</li>
+    {%- endfor %}
+    </ul>
+    {%- endfor %}
+  </div>
+  <aside class="services-side">
+    <h2>{{ services.aside_heading }}</h2>
+    <ul>
+      {%- for item_html in services.aside_items_html %}
+      <li>{{ item_html | safe }}</li>
+      {%- endfor %}
+    </ul>
+  </aside>
+</div>

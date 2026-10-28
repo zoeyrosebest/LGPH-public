@@ -1,0 +1,32 @@
+{
+  "title": "Select Photography | LGPH",
+  "description": "Portrait Photography, Experimental Photography, Documentarian Photography, Event Photography, non Profit Photography, Business Photography, Real Estate Photography....The works!",
+  "heading": "Select Photography",
+  "images": [
+    { "src": "/assets/img/photo-01.jpg", "alt": "Gallery image" },
+    { "src": "/assets/img/photo-02.jpg", "alt": "Gallery image" },
+    { "src": "/assets/img/photo-03.jpg", "alt": "Gallery image" },
+    { "src": "/assets/img/photo-04.jpg", "alt": "Gallery image" },
+    { "src": "/assets/img/photo-05.jpg", "alt": "Gallery image" },
+    { "src": "/assets/img/photo-06.jpg", "alt": "Gallery image" },
+    { "src": "/assets/img/photo-07.jpg", "alt": "Gallery image" },
+    { "src": "/assets/img/photo-08.jpg", "alt": "Gallery image" },
+    { "src": "/assets/img/photo-09.jpg", "alt": "Gallery image" },
+    { "src": "/assets/img/photo-10.jpg", "alt": "Gallery image" },
+    { "src": "/assets/img/photo-11.jpg", "alt": "Gallery image" },
+    { "src": "/assets/img/photo-12.jpg", "alt": "Gallery image" },
+    { "src": "/assets/img/photo-13.jpg", "alt": "Gallery image" },
+    { "src": "/assets/img/photo-14.jpg", "alt": "Gallery image" },
+    { "src": "/assets/img/photo-15.jpg", "alt": "Gallery image" },
+    { "src": "/assets/img/photo-16.jpg", "alt": "Gallery image" },
+    { "src": "/assets/img/photo-17.jpg", "alt": "Gallery image" },
+    { "src": "/assets/img/photo-18.jpg", "alt": "Gallery image" },
+    { "src": "/assets/img/photo-19.jpg", "alt": "Gallery image" },
+    { "src": "/assets/img/photo-20.jpg", "alt": "Gallery image" },
+    { "src": "/assets/img/photo-21.jpg", "alt": "Gallery image" },
+    { "src": "/assets/img/photo-22.jpg", "alt": "Gallery image" },
+    { "src": "/assets/img/photo-23.jpg", "alt": "Gallery image" },
+    { "src": "/assets/img/photo-24.jpg", "alt": "Gallery image" },
+    { "src": "/assets/img/photo-25.jpg", "alt": "Gallery image" }
+  ]
+}

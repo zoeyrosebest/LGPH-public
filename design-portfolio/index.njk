@@ -1,0 +1,15 @@
+---
+layout: base.njk
+permalink: /design-portfolio/index.html
+eleventyComputed:
+  title: "{{ design.title }}"
+  description: "{{ design.description }}"
+---
+<h1 class="page-heading">{{ design.heading_html | safe }}</h1>
+<img class="heart" src="/assets/img/hand-drawn-heart.png" alt="" width="84">
+<!-- Design gallery. Click any image to see it large. -->
+<div class="gallery masonry">
+{%- for img in design.images %}
+  <figure><a href="{{ img.src }}" class="lightbox"><img src="{{ img.src }}" alt="{{ img.alt }}" loading="lazy"></a></figure>
+{%- endfor %}
+</div>

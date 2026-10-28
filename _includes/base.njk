@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}">
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:image" content="{{ og_image or '/assets/img/lgph-logo.png' }}">
+  <link rel="icon" href="/assets/img/lgph-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,200;0,300;0,400;1,200;1,300;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <!-- ===== HEADER (same on every page) ===== -->
+  <header class="site-header">
+    <div class="brand">
+      <a class="site-title" href="/">{{ site.brand.title }}</a>
+      <p class="site-subtitle">{{ site.brand.subtitle_html | safe }}</p>
+    </div>
+    <div class="motto">
+      <a href="/"><img src="/assets/img/lgph-logo.png" alt="{{ site.brand.logo_alt }}" width="73" height="73"></a>
+      <p class="motto-quote">{{ site.brand.motto_quote }}</p>
+      <p class="motto-line">{{ site.brand.motto_line_html | safe }}</p>
+    </div>
+  </header>
+
+  <div class="layout">
+    <!-- ===== MENU (same on every page) ===== -->
+    <nav class="site-nav" aria-label="Main menu">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="menu">Menu</button>
+      <ul id="menu">
+        {%- for item in site.nav %}
+        <li><a href="{{ item.url }}"{% if item.url == page.url %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+        {%- endfor %}
+      </ul>
+    </nav>
+
+    <main>
+      {{ content | safe }}
+    </main>
+  </div>
+
+{% if after_layout %}{{ after_layout | safe }}{% endif %}
+
+  <!-- ===== FOOTER (same on every page) ===== -->
+  <footer class="site-footer">
+    <p>{{ site.footer.collab_text_html | safe }}</p>
+    <div class="footer-row">
+      <!-- PayPal donate button. Sends donations to the PayPal account for zoeyrosebest@gmail.com (same as the Wix site). -->
+      <form action="https://www.paypal.com/donate" method="post" target="_blank" class="donate">
+        <input type="hidden" name="business" value="{{ site.paypal.business }}">
+        <input type="hidden" name="currency_code" value="{{ site.paypal.currency_code }}">
+        <input type="hidden" name="item_name" value="{{ site.paypal.item_name }}">
+        <button type="submit">Donate with PayPal</button>
+      </form>
+      <ul class="social">
+        {%- for s in site.social %}
+        <li><a href="{{ s.url }}" target="_blank" rel="noopener"><img src="{{ s.icon }}" alt="{{ s.platform }}" width="39" height="39"></a></li>
+        {%- endfor %}
+      </ul>
+    </div>
+    <p class="copyright">&copy; {{ site.footer.copyright }}</p>
+  </footer>
+  <script src="/js/site.js"></script>
+</body>
+</html>

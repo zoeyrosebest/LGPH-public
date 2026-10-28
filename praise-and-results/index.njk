@@ -1,0 +1,29 @@
+---
+layout: base.njk
+permalink: /praise-and-results/index.html
+eleventyComputed:
+  title: "{{ praise.title }}"
+  description: "{{ praise.description }}"
+---
+<section class="praise-top">
+  <blockquote class="big-quote">{{ praise.big_quote }}</blockquote>
+  <div class="praise-images">
+    <img src="{{ praise.praise_images.logo.src }}" alt="{{ praise.praise_images.logo.alt }}" class="habitat-logo">
+    <a href="{{ praise.praise_images.letter.src }}" class="lightbox"><img src="{{ praise.praise_images.letter.src }}" alt="{{ praise.praise_images.letter.alt }}" class="letter"></a>
+  </div>
+</section>
+
+<section class="press-box">
+  <h2>{{ praise.press.heading }}</h2>
+  <p class="byline">{{ praise.press.byline }}</p>
+  <div class="video"><iframe src="{{ praise.press.embed_url }}" title="{{ praise.press.embed_title }}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+  <blockquote>
+    <p>{{ praise.press.quote_html | safe }}</p>
+    <footer>{{ praise.press.source_html | safe }}</footer>
+  </blockquote>
+</section>
+
+<figure class="pictured">
+  <img src="{{ praise.pictured.image.src }}" alt="{{ praise.pictured.image.alt }}">
+  <figcaption>{{ praise.pictured.caption_html | safe }}</figcaption>
+</figure>

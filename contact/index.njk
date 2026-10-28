@@ -1,0 +1,34 @@
+---
+layout: base.njk
+permalink: /contact/index.html
+eleventyComputed:
+  title: "{{ contact.title }}"
+  description: "{{ contact.description }}"
+---
+<section class="contact">
+  <h1 class="page-heading">{{ contact.heading }}</h1>
+  <p class="center">{{ contact.intro }}</p>
+
+  <!--
+    TODO (contact form): this form needs a free form service to deliver messages to your email.
+    OPTION A - Formspree (works on any host):
+      1. Sign up free at https://formspree.io with zoeyrosebest@gmail.com and create a form.
+      2. Copy your form ID (looks like "xayzabcd") and replace YOUR_FORM_ID below.
+    OPTION B - Netlify Forms (only if you host on Netlify):
+      1. Delete the action="..." attribute below and add:  data-netlify="true"
+      2. Netlify will show submissions under Site > Forms and can email you.
+    See README.md, section "Contact form", for details.
+  -->
+  <form class="contact-form" name="contact" method="POST" action="https://formspree.io/f/YOUR_FORM_ID">
+    <input type="hidden" name="form-name" value="contact">
+    <input type="hidden" name="_subject" value="New message from lgphome.com">
+    <label>Name <input type="text" name="name" maxlength="100" required autocomplete="name"></label>
+    <label>Email <input type="email" name="email" maxlength="250" required autocomplete="email"></label>
+    <label>What's on your mind? <textarea name="message" rows="6" required></textarea></label>
+    <p class="hp" aria-hidden="true"><label>Leave this empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
+    <button type="submit" class="button">Send it</button>
+    <p class="form-status" role="status" hidden>*sent into cyberspace*</p>
+  </form>
+
+  <p class="center">{{ contact.footer_note_html | safe }}</p>
+</section>

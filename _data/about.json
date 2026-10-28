@@ -1,0 +1,61 @@
+{
+  "title": "About | LGPH",
+  "description": "About Zoey Rose Best, filmmaker and visual communicator behind Long Gone Production Home.",
+  "photos": [
+    { "src": "/assets/img/about-zoey-video-shoot.jpg", "alt": "Zoey, a female, queer filmmaker looking into a camera during a video shoot" },
+    { "src": "/assets/img/about-zoey-blue-light-set.jpg", "alt": "Zoey, a female, queer, filmmaker looking into a camera on a film set that is lit with blue lights" }
+  ],
+  "skill_sections": [
+    {
+      "heading": "VIDEO and EDITING",
+      "subsections": [
+        { "subheading": "Pre-Production", "body_html": "Producer, Screenwriter, <strong>Celtx</strong> &amp; <strong>Final Draft</strong>" },
+        { "subheading": "Production", "body_html": "Camera Operator: DSLR HD/4K, Blackmagic &amp; Drone, Cinematographer, Director, Lighting &amp; Set Designer" },
+        { "subheading": "Post-Production", "body_html": "Video Editor, <strong>Adobe Premiere Pro/ After Effects</strong>, <strong>Final Cut Pro 7</strong>, Sound Designer/ Corrector, <strong>Pro Tools</strong> &amp; <strong>Adobe Audition</strong>" }
+      ]
+    },
+    {
+      "heading": "DESIGN and PHOTOGRAPHY",
+      "subsections": [
+        { "subheading": "Graphic Design", "body_html": "Typographer, <strong>Adobe Illustrator</strong> Promotional Content Designer, <strong>Quark X Press</strong>, Website Designer &amp; Online Marketing Content Creator" },
+        { "subheading": "Photography", "body_html": "35mm Film &amp; Digital Photography, Film Developer &amp; Adobe <strong>Photoshop</strong>" }
+      ]
+    },
+    {
+      "heading": "DANCE and THEATER PRODUCTION",
+      "subsections": [
+        { "subheading": "", "body_html": "House Manager, Production Video/ Sound Recorder &amp; Production Sales/ Marketing Developer" }
+      ]
+    },
+    {
+      "heading": "PERFORMANCE and CREW",
+      "subsections": [
+        { "subheading": "", "body_html": "Director, Actor trained with the Stanislavski Method, Stage Manager, Light Designer/ Rigger &amp; Costume/ Makeup Designer" }
+      ]
+    },
+    {
+      "heading": "WORKPLACE and LIFE SKILLS",
+      "subsections": [
+        { "subheading": "", "body_html": "Empathetic Leader, Intuitive Instructor, Creative Brainstormer &amp; Developer, Strength in High-Pressure Environments, Organized with Coinciding Projects &amp; Deadlines, Excellent Verbal &amp; Writing Skills, First Aid/CPR/AED Trained" }
+      ]
+    }
+  ],
+  "worked_with": {
+    "intro_html": "I have had the pleasure of working with some amazing people,<br>non-profits, and companies including:",
+    "clients": [
+      "Morris Habitat for Humanity",
+      "D-Scape Interactive",
+      "Tiffany and Co.",
+      "The Kresge &amp; Pascal Galleries at Ramapo College",
+      "Transition Professionals",
+      "Catbridge Machinery",
+      "The Vito Marcantonio Forum",
+      "The FWRD Collective",
+      "Danse Lumi&egrave;re",
+      "Djerassi Resident Artists Program"
+    ],
+    "footer_html": "<em>References &amp; CV proudly available upon request</em>"
+  },
+  "cta_link": "/services/",
+  "cta_label": "Click to view the Services Page"
+}

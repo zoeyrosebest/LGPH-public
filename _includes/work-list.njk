@@ -1,0 +1,16 @@
+{%- macro work_articles(works) %}
+{%- for w in works %}
+<article class="work">
+  {%- if w.preserve_todo %}
+  <!-- TODO: this 64 MB file was hosted by Wix. Consider uploading it to YouTube and swapping in an embed like the films above. -->
+  {%- endif %}
+  <div class="video">{% if w.video_file %}<video controls preload="metadata" title="{{ w.embed_title }}"><source src="{{ w.video_file }}" type="video/mp4"></video>{% else %}<iframe src="{{ w.embed_url }}" title="{{ w.embed_title }}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>{% endif %}</div>
+  <div class="work-text">
+    <h2>{{ w.work_title }}</h2>
+    {%- for p in w.paragraphs %}
+    <p>{{ p }}</p>
+    {%- endfor %}
+  </div>
+</article>
+{%- endfor %}
+{%- endmacro %}

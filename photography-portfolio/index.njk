@@ -1,0 +1,14 @@
+---
+layout: base.njk
+permalink: /photography-portfolio/index.html
+eleventyComputed:
+  title: "{{ photography.title }}"
+  description: "{{ photography.description }}"
+---
+<h1 class="page-heading">{{ photography.heading }}</h1>
+<!-- Photo gallery. Click any photo to see it large. To add a photo, put it in assets/img/ and copy a <figure> line. -->
+<div class="gallery masonry">
+{%- for img in photography.images %}
+  <figure><a href="{{ img.src }}" class="lightbox"><img src="{{ img.src }}" alt="{{ img.alt }}" loading="lazy"></a></figure>
+{%- endfor %}
+</div>

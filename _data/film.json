@@ -1,0 +1,54 @@
+{
+  "title": "Select Film | LGPH",
+  "description": "Selected short films by Zoey Rose Best for Long Gone Production Home.",
+  "heading_html": "Selected Films by Zoey Rose Best for<br>Long Gone Production Home",
+  "works": [
+    {
+      "embed_url": "https://www.youtube-nocookie.com/embed/0ye3DSUZLmY",
+      "embed_title": "Lithium, 2020",
+      "video_file": "",
+      "preserve_todo": false,
+      "work_title": "Lithium, 2020",
+      "paragraphs": [
+        "An experimental drama written, directed, shot, and edited by Zoey Rose Best.",
+        "Lithium follows Elle in her downfall and recovery whilst living with Bipolar II",
+        "Staring Alyssa Berman as Elle."
+      ]
+    },
+    {
+      "embed_url": "https://www.youtube-nocookie.com/embed/kC8tMa5y0VI",
+      "embed_title": "Feminism From The Pole, 2017",
+      "video_file": "",
+      "preserve_todo": false,
+      "work_title": "Feminism From The Pole, 2017",
+      "paragraphs": [
+        "A short drama written, directed, shot, and edited by Zoey Rose Best.",
+        "When Troy threatens to reveal Ivy, who is behind the controversial blog 'From the Pole', she must decide if her anonymity is worth her pride.",
+        "Staring Gabi Gambino as Ivy."
+      ]
+    },
+    {
+      "embed_url": "https://www.youtube-nocookie.com/embed/Piqui06-vQA",
+      "embed_title": "Addicted a Latte, 2016",
+      "video_file": "",
+      "preserve_todo": false,
+      "work_title": "Addicted a Latte, 2016",
+      "paragraphs": [
+        "A comedic- documentary created and edited by Zoey Rose Best.",
+        "A silly and intimate look into the lives of 4 college students and their relationship to caffeine.",
+        "Featuring Arielle Rebekah, Raechel Sontag, Dan McElrone, and Katie McGee."
+      ]
+    },
+    {
+      "embed_url": "",
+      "embed_title": "Building a Home, 2013",
+      "video_file": "/assets/video/building-a-home-2013.mp4",
+      "preserve_todo": true,
+      "work_title": "Building a Home, 2013",
+      "paragraphs": [
+        "A documentary-short Written, Directed, Shot, and Edited by Zoey Rose Best",
+        "This film follows a weekend Habitat for Humanity build."
+      ]
+    }
+  ]
+}

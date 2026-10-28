@@ -1,0 +1,16 @@
+{
+  "title": "Select Design | LGPH",
+  "description": "Select graphic design work by Zoey Rose Best: flyers, packaging, labels, sketches and forms.",
+  "heading_html": "Select Design Work by Zoey Rose Best for<br>Long Gone Production Home",
+  "images": [
+    { "src": "/assets/img/design-01-printer-friendly-rlf-flyer.jpg", "alt": "Printer Friendly RLF Flyer" },
+    { "src": "/assets/img/design-02-dvd-slip.jpg", "alt": "DVD slip" },
+    { "src": "/assets/img/design-03-landon-sketch.png", "alt": "Landon Sketch" },
+    { "src": "/assets/img/design-04-sticker-labels.png", "alt": "Sticker Labels" },
+    { "src": "/assets/img/design-05-kuyrtis-on-a-sunday.png", "alt": "Kuyrtis on a sunday" },
+    { "src": "/assets/img/design-06-nightlife-package.jpg", "alt": "Nightlife Package.jpg" },
+    { "src": "/assets/img/design-07.jpg", "alt": "Fringe flyer" },
+    { "src": "/assets/img/design-08-amy-s-intake-form.png", "alt": "Amy's Intake Form" },
+    { "src": "/assets/img/design-09.jpg", "alt": "Stripper GriZ" }
+  ]
+}
