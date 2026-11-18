@@ -1,8 +1,11 @@
 ---
 // A click-to-enlarge grid. Used by the Select Photography, Select Design
 // and Art Store pages. An optional caption shows under each image.
+// On the store, each item may also carry a Square (or similar) Buy Button
+// HTML snippet; when present it renders below the caption, outside the
+// lightbox link so clicking it goes to checkout instead of enlarging.
 interface Props {
-  photos: { src: string; alt: string; caption?: string }[];
+  photos: { src: string; alt: string; caption?: string; buyButtonHtml?: string }[];
   extraClass?: string;
 }
 const { photos, extraClass = 'masonry' } = Astro.props;
@@ -16,6 +19,7 @@ const { photos, extraClass = 'masonry' } = Astro.props;
             <img src={p.src} alt={p.alt || p.caption || 'Gallery image'} loading="lazy" />
             {p.caption && <figcaption>{p.caption}</figcaption>}
           </a>
+          {p.buyButtonHtml && <div class="store-buy" set:html={p.buyButtonHtml} />}
         </figure>
       ))}
     </div>

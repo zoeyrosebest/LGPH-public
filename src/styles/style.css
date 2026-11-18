@@ -176,6 +176,8 @@ main { min-width: 0; }
 .store-grid img { aspect-ratio: 3 / 4; object-fit: cover; }
 .store-grid figcaption { font-size: 15px; padding-top: 6px; text-decoration: none; }
 .store-grid a { text-decoration: none; }
+.store-buy { padding-top: 10px; text-align: center; }
+.store-buy > * { max-width: 100%; }
 
 /* Lightbox (opened by js/site.js) */
 .lb { position: fixed; inset: 0; background: rgba(0,0,0,.9); display: flex; align-items: center; justify-content: center; z-index: 50; cursor: zoom-out; padding: 20px; }
