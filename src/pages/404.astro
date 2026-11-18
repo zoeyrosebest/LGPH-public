@@ -1,0 +1,10 @@
+---
+import Base from '../layouts/Base.astro';
+import page from '../../content/pages/notfound.json';
+---
+<Base title={page.title} description={page.description}>
+  <h1 class="page-heading">{page.heading}</h1>
+  <p class="center">
+    {page.text} <a href={page.linkHref}>{page.linkLabel}</a>.
+  </p>
+</Base>

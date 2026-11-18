@@ -1,0 +1,27 @@
+---
+// The hexagon grid on the homepage. Each hex is an image with a title that
+// shows on hover; if a hex has a link, the whole hex becomes a link.
+interface Props {
+  items: { image: string; title: string; link?: string }[];
+}
+const { items } = Astro.props;
+---
+<ul class="honeycomb">
+  {
+    items.map((h) => (
+      <li class="hex">
+        {h.link ? (
+          <a href={h.link} target="_blank" rel="noopener">
+            <img src={h.image} alt={h.title} loading="lazy" />
+            <span>{h.title}</span>
+          </a>
+        ) : (
+          <>
+            <img src={h.image} alt={h.title} loading="lazy" />
+            <span>{h.title}</span>
+          </>
+        )}
+      </li>
+    ))
+  }
+</ul>

@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import ServiceList from '../components/ServiceList.astro';
+import page from '../../content/pages/services.json';
+---
+<Base title={page.title} description={page.description} current="/services/">
+  <div class="services">
+    <div class="services-main">
+      <h2>{page.headingOne}</h2>
+      <ServiceList items={page.groupOne} />
+      <h2>{page.headingTwo}</h2>
+      <ServiceList items={page.groupTwo} />
+    </div>
+    <aside class="services-side">
+      <h2>{page.ideasHeading}</h2>
+      <ul>
+        {page.ideas.map((i) => <li>{i.text}</li>)}
+        <li>{page.ideasFooterText} <a href="/contact/">{page.ideasFooterLinkLabel}</a></li>
+      </ul>
+    </aside>
+  </div>
+</Base>

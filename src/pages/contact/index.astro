@@ -1,0 +1,51 @@
+---
+import Base from '../../layouts/Base.astro';
+import page from '../../../content/pages/contact.json';
+import { inline } from '../../lib/text';
+---
+<Base title={page.title} description={page.description} current="/contact/">
+  <section class="contact">
+    <h1 class="page-heading">{page.heading}</h1>
+    <p class="center">{page.subheading}</p>
+
+    <!--
+      Leave "Formspree address" empty in the editor and this is a Netlify form:
+      Netlify finds it in the built HTML and collects submissions itself.
+      Put a Formspree address in and it posts there instead.
+    -->
+    <form
+      class="contact-form"
+      name="contact"
+      method="POST"
+      action={page.formAction || undefined}
+      data-netlify={page.formAction ? undefined : 'true'}
+      data-netlify-honeypot={page.formAction ? undefined : '_gotcha'}
+    >
+      <input type="hidden" name="form-name" value="contact" />
+      {
+        page.formAction && (
+          <input type="hidden" name="_subject" value="New message from Long Gone Production Home" />
+        )
+      }
+      <label>
+        {page.nameLabel}
+        <input type="text" name="name" maxlength="100" required autocomplete="name" />
+      </label>
+      <label>
+        {page.emailLabel}
+        <input type="email" name="email" maxlength="250" required autocomplete="email" />
+      </label>
+      <label>
+        {page.messageLabel}
+        <textarea name="message" rows="6" required></textarea>
+      </label>
+      <p class="hp" aria-hidden="true">
+        <label>Leave this empty <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" /></label>
+      </p>
+      <button type="submit" class="button">{page.submitLabel}</button>
+      <p class="form-status" role="status" hidden>{page.sentMessage}</p>
+    </form>
+
+    <p class="center"><em set:html={inline(page.footerNote)} /></p>
+  </section>
+</Base>

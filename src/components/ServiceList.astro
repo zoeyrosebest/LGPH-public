@@ -1,0 +1,33 @@
+---
+// Each service may link out to a YouTube example. Items with no video ID
+// render as text only (they still get a play icon so the row lines up).
+interface Props {
+  items: { name: string; description: string; videoId?: string; videoTitle?: string }[];
+}
+const { items } = Astro.props;
+---
+<ul class="service-list">
+  {
+    items.map((s) => (
+      <li>
+        {s.videoId ? (
+          <a
+            href={`https://youtu.be/${s.videoId}`}
+            target="_blank"
+            rel="noopener"
+          >
+            <span class="play" aria-hidden="true" />
+            <h3>{s.name}</h3>
+            <p>{s.description}</p>
+          </a>
+        ) : (
+          <>
+            <span class="play" aria-hidden="true" />
+            <h3>{s.name}</h3>
+            <p>{s.description}</p>
+          </>
+        )}
+      </li>
+    ))
+  }
+</ul>

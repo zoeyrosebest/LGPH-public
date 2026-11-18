@@ -1,0 +1,10 @@
+---
+import Base from '../../layouts/Base.astro';
+import Gallery from '../../components/Gallery.astro';
+import page from '../../../content/pages/photography.json';
+---
+<Base title={page.title} description={page.description} current="/photography-portfolio/">
+  <h1 class="page-heading">{page.heading}</h1>
+  {page.intro && <p class="center intro">{page.intro}</p>}
+  <Gallery photos={page.photos} />
+</Base>

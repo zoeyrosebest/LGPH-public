@@ -1,0 +1,32 @@
+{
+  "title": "Select Video | LGPH",
+  "description": "Selected videos, video art and PSAs by Zoey Rose Best for Long Gone Production Home.",
+  "heading": "Selected Videos by Zoey Rose Best for\nLong Gone Production Home",
+  "showHeart": true,
+  "works": [
+    {
+      "title": "Fire Fly, 2020",
+      "videoId": "yWJ_2PRcVT8",
+      "videoFile": "",
+      "body": "Video Art shot with a drone by Zoey Rose Best\n\nFeaturing Lauren Lynch."
+    },
+    {
+      "title": "Woodstock Simulation, 2017",
+      "videoId": "JLx3OmIOMII",
+      "videoFile": "",
+      "body": "Set building and Cinematography in an indoor studio by Zoey Rose Best\n\nFeaturing Gabbi Febbriao and Katie McGee"
+    },
+    {
+      "title": "Anti-Littering PSA, 2016",
+      "videoId": "CWtSTDxhQEk",
+      "videoFile": "",
+      "body": "For Ramapo College of NJ, Created by Zoey Rose Best\n\nFeaturing Raechel Sontag"
+    },
+    {
+      "title": "Privilege PSA, 2016",
+      "videoId": "j_N2FZkyHX0",
+      "videoFile": "",
+      "body": "For Ramapo College of NJ created by Zoey Rose Best\n\nFeaturing Katie Mcgee, Kira Abrams, Danielle Rogers, and Zoey Best"
+    }
+  ]
+}

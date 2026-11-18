@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://longgoneproductionhome.netlify.app/sitemap.xml

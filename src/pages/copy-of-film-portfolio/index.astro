@@ -1,0 +1,14 @@
+---
+import Base from '../../layouts/Base.astro';
+import WorkList from '../../components/WorkList.astro';
+import page from '../../../content/pages/video.json';
+import { inline } from '../../lib/text';
+import { hasAsset } from '../../lib/assets';
+
+const heart = '/assets/img/hand-drawn-heart.png';
+---
+<Base title={page.title} description={page.description} current="/copy-of-film-portfolio/">
+  <h1 class="page-heading" set:html={inline(page.heading)} />
+  {page.showHeart && hasAsset(heart) && <img class="heart" src={heart} alt="" width="84" />}
+  <WorkList works={page.works} />
+</Base>

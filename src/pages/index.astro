@@ -1,0 +1,44 @@
+---
+import Base from '../layouts/Base.astro';
+import Honeycomb from '../components/Honeycomb.astro';
+import page from '../../content/pages/home.json';
+import { paragraphs } from '../lib/text';
+import { hasAsset } from '../lib/assets';
+
+const eye = '/assets/img/hand-drawn-eye.png';
+---
+<Base title={page.title} description={page.description} current="/">
+  <Honeycomb items={page.honeycomb} />
+
+  <blockquote class="testimonial">
+    <p>&ldquo;{page.testimonialQuote}&rdquo;</p>
+    <footer>{page.testimonialAttribution}</footer>
+  </blockquote>
+
+  <section class="band" slot="full-width">
+    <div class="band-inner">
+      {hasAsset(eye) && <img class="eye" src={eye} alt="Hand drawn eye" width="120" />}
+      {paragraphs(page.bandText).map((html) => <p set:html={html} />)}
+      <hr />
+      <div class="video-grid">
+        {
+          page.bandVideos.map((v) => (
+            <div class="video">
+              <iframe
+                src={`https://www.youtube-nocookie.com/embed/${v.videoId}`}
+                title={v.title}
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              />
+            </div>
+          ))
+        }
+      </div>
+      <hr />
+      <p class="center">
+        <a class="button button-light" href={page.bandButtonHref}>{page.bandButtonLabel}</a>
+      </p>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,27 @@
+{
+  "title": "Services | LGPH",
+  "description": "Video editing, sound editing, color correction, cinematography, sound recording, lighting and set design by Long Gone Production Home.",
+  "headingOne": "All your post-production needs to achieve artistic and effective messaging",
+  "groupOne": [
+    { "name": "Video Editing", "description": "Succinct story-telling designed for a variety of online platforms", "videoId": "AKd5jn-PpQ8", "videoTitle": "" },
+    { "name": "Sound Editing", "description": "Sound editing, correcting and captioning for overall clarity and inclusivity", "videoId": "mg6DzDhBWfM", "videoTitle": "" },
+    { "name": "Color Correction", "description": "Footage correction to beautify and provide professional quality video", "videoId": "AKd5jn-PpQ8", "videoTitle": "" }
+  ],
+  "headingTwo": "Merging thoughtful communication with cutting-edge technology",
+  "groupTwo": [
+    { "name": "Cinematography", "description": "Professionally shot video that represents you or your company visually", "videoId": "AKd5jn-PpQ8", "videoTitle": "" },
+    { "name": "Sound Recording", "description": "External sound recording to ensure satisfyingly crisp audio", "videoId": "", "videoTitle": "" },
+    { "name": "Lighting & Set", "description": "Natural and mood-lighting that stylizes footage to your vision", "videoId": "JLx3OmIOMII", "videoTitle": "" }
+  ],
+  "ideasHeading": "Projects I'd love to help you execute",
+  "ideas": [
+    { "text": "Video & Podcast Editing" },
+    { "text": "Creative & Documentation Videography" },
+    { "text": "Portrait, Event & Product Photography" },
+    { "text": "Short film and Music video producing & post-production" },
+    { "text": "Infographics & Logo Design" },
+    { "text": "File organization, Digitization & Project sharing" }
+  ],
+  "ideasFooterText": "Something else?",
+  "ideasFooterLinkLabel": "Contact Me"
+}

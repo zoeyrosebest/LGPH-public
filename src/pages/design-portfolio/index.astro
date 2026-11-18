@@ -1,0 +1,11 @@
+---
+import Base from '../../layouts/Base.astro';
+import Gallery from '../../components/Gallery.astro';
+import page from '../../../content/pages/design.json';
+import { inline } from '../../lib/text';
+---
+<Base title={page.title} description={page.description} current="/design-portfolio/">
+  <h1 class="page-heading" set:html={inline(page.heading)} />
+  {page.intro && <p class="center intro">{page.intro}</p>}
+  <Gallery photos={page.photos} />
+</Base>
