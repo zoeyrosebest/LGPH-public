@@ -1,459 +1,409 @@
-import { defineConfig } from "tinacms";
+import { defineConfig } from 'tinacms';
 
-// Branch Tina reads from and writes to. Set in Netlify env vars for production.
+// Where Tina saves. In local mode it writes straight to the files in content/.
+// Once TinaCloud is connected it commits to GitHub instead.
 const branch =
-  process.env.GITHUB_BRANCH ||
-  process.env.VERCEL_GIT_COMMIT_REF ||
-  process.env.HEAD ||
-  "main";
+  process.env.GITHUB_BRANCH || process.env.VERCEL_GIT_COMMIT_REF || process.env.HEAD || 'main';
+
+const textarea = { component: 'textarea' as const };
+
+/** A page that only ever has one file, so no New or Delete buttons. */
+const singleton = { allowedActions: { create: false, delete: false } };
 
 export default defineConfig({
   branch,
-
-  // Tina Cloud project credentials. Get these at tina.io after you sign up and
-  // register this repo as a project. Add them as env vars in Netlify:
-  //   NEXT_PUBLIC_TINA_CLIENT_ID = <Client ID from Tina Cloud>
-  //   TINA_TOKEN                 = <Read-only token from Tina Cloud>
-  clientId: process.env.NEXT_PUBLIC_TINA_CLIENT_ID || "",
-  token: process.env.TINA_TOKEN || "",
-
-  build: {
-    outputFolder: "admin",
-    publicFolder: "_site",
-  },
-
-  media: {
-    tina: {
-      mediaRoot: "assets/img",
-      publicFolder: "",
-    },
-  },
-
+  // The Client ID is public, it ships inside the admin page anyway, so it lives here.
+  // The Token is the secret one and is set as an environment variable on the host.
+  clientId: process.env.TINA_CLIENT_ID || '',
+  token: process.env.TINA_TOKEN || null,
+  build: { outputFolder: 'admin', publicFolder: 'public' },
+  media: { tina: { mediaRoot: 'assets/img', publicFolder: 'public' } },
   schema: {
     collections: [
-      // ---------- Site-wide (header, nav, footer, PayPal, socials) ----------
       {
-        name: "site",
-        label: "Site (header, menu, footer)",
-        path: "_data",
-        format: "json",
-        match: { include: "site" },
-        ui: { allowedActions: { create: false, delete: false } },
+        name: 'settings',
+        label: 'Header, menu and footer',
+        path: 'content',
+        format: 'json',
+        match: { include: 'settings' },
+        ui: singleton,
         fields: [
+          { type: 'string', name: 'siteTitle', label: 'Site name' },
+          { type: 'string', name: 'subtitle', label: 'Line under the site name', ui: textarea },
+          { type: 'string', name: 'mottoQuote', label: 'Motto, in quotes' },
+          { type: 'string', name: 'mottoLine', label: 'Motto, second line', ui: textarea },
           {
-            type: "object", name: "brand", label: "Brand",
+            type: 'object', name: 'nav', label: 'Menu', list: true,
+            ui: { itemProps: (i: any) => ({ label: i?.label }) },
             fields: [
-              { type: "string", name: "title", label: "Site title" },
-              { type: "string", name: "subtitle_html", label: "Site subtitle (allows <br>)" },
-              { type: "string", name: "logo_alt", label: "Logo alt text" },
-              { type: "string", name: "motto_quote", label: "Motto quote" },
-              { type: "string", name: "motto_line_html", label: "Motto line (allows <br>)" },
+              { type: 'string', name: 'label', label: 'What it says' },
+              { type: 'string', name: 'href', label: 'Where it goes' },
             ],
           },
+          { type: 'string', name: 'commercialSiteLabel', label: 'Commercial site link text' },
+          { type: 'string', name: 'commercialSiteUrl', label: 'Commercial site address' },
+          { type: 'string', name: 'footerNote', label: 'Footer line', ui: textarea },
+          { type: 'string', name: 'footerLinkLabel', label: 'Footer link text' },
+          { type: 'string', name: 'footerLinkHref', label: 'Footer link goes to' },
+          { type: 'string', name: 'email', label: 'Email address' },
           {
-            type: "object", name: "nav", label: "Menu items", list: true,
-            ui: { itemProps: (item) => ({ label: item?.label || "New item" }) },
+            type: 'object', name: 'social', label: 'Social links', list: true,
+            ui: { itemProps: (i: any) => ({ label: i?.label }) },
             fields: [
-              { type: "string", name: "label", label: "Menu label" },
-              { type: "string", name: "url", label: "Link (e.g. /services/)" },
+              { type: 'string', name: 'label', label: 'Name' },
+              { type: 'string', name: 'url', label: 'Address' },
+              { type: 'image', name: 'icon', label: 'Icon (optional, PNG)' },
             ],
           },
-          {
-            type: "object", name: "footer", label: "Footer",
-            fields: [
-              { type: "string", name: "collab_text_html", label: "Collab text (allows <br>, <a>)", ui: { component: "textarea" } },
-              { type: "string", name: "copyright", label: "Copyright name" },
-            ],
-          },
-          {
-            type: "object", name: "paypal", label: "PayPal donate button",
-            fields: [
-              { type: "string", name: "business", label: "PayPal email" },
-              { type: "string", name: "currency_code", label: "Currency (e.g. USD)" },
-              { type: "string", name: "item_name", label: "Donation item name" },
-            ],
-          },
-          {
-            type: "object", name: "social", label: "Social icons", list: true,
-            ui: { itemProps: (item) => ({ label: item?.platform || "New icon" }) },
-            fields: [
-              { type: "string", name: "platform", label: "Platform (e.g. Instagram)" },
-              { type: "string", name: "url", label: "Profile URL" },
-              { type: "image", name: "icon", label: "Icon image" },
-            ],
-          },
+          { type: 'string', name: 'paypalBusiness', label: 'PayPal account email' },
+          { type: 'string', name: 'paypalItemName', label: 'PayPal donation label' },
+          { type: 'string', name: 'copyright', label: 'Copyright name' },
         ],
       },
-
-      // ---------- Home ----------
       {
-        name: "home",
-        label: "Home page",
-        path: "_data",
-        format: "json",
-        match: { include: "home" },
-        ui: { allowedActions: { create: false, delete: false } },
+        name: 'home',
+        label: 'Home page',
+        path: 'content/pages',
+        format: 'json',
+        match: { include: 'home' },
+        ui: singleton,
         fields: [
-          { type: "string", name: "title", label: "Browser tab title" },
-          { type: "string", name: "description", label: "Search engine description", ui: { component: "textarea" } },
+          { type: 'string', name: 'title', label: 'Browser tab title', ui: textarea },
+          { type: 'string', name: 'description', label: 'Search engine description', ui: textarea },
           {
-            type: "object", name: "honeycomb", label: "Honeycomb gallery", list: true,
-            ui: { itemProps: (item) => ({ label: item?.title || "New hex" }) },
+            type: 'object', name: 'honeycomb', label: 'Honeycomb hexagons', list: true,
+            ui: { itemProps: (i: any) => ({ label: i?.title }) },
             fields: [
-              { type: "image", name: "image", label: "Image" },
-              { type: "string", name: "title", label: "Caption on hover" },
-              { type: "string", name: "link", label: "Optional link (leave blank for none)" },
+              { type: 'image', name: 'image', label: 'Image' },
+              { type: 'string', name: 'title', label: 'Title (shows on hover)' },
+              { type: 'string', name: 'link', label: 'Link (optional)', description: 'Leave empty if the hexagon is just an image.' },
             ],
           },
+          { type: 'string', name: 'testimonialQuote', label: 'Testimonial quote', ui: textarea },
+          { type: 'string', name: 'testimonialAttribution', label: 'Who said it' },
+          { type: 'string', name: 'bandText', label: 'Brown band text', ui: textarea, description: 'Leave a blank line between paragraphs.' },
           {
-            type: "object", name: "testimonial", label: "Testimonial quote",
+            type: 'object', name: 'bandVideos', label: 'Brown band videos', list: true,
+            ui: { itemProps: (i: any) => ({ label: i?.title }) },
             fields: [
-              { type: "string", name: "quote", label: "Quote", ui: { component: "textarea" } },
-              { type: "string", name: "author", label: "Author (keep the leading -)" },
+              { type: 'string', name: 'videoId', label: 'YouTube ID', description: 'The part after v= or youtu.be/.' },
+              { type: 'string', name: 'title', label: 'Title (for screen readers)' },
             ],
           },
-          {
-            type: "object", name: "band", label: "Lower section (eye, intro, videos)",
-            fields: [
-              {
-                type: "string", name: "intro_paragraphs", label: "Intro paragraphs", list: true,
-                ui: { component: "textarea" },
-              },
-              {
-                type: "object", name: "videos", label: "Videos", list: true,
-                ui: { itemProps: (item) => ({ label: item?.label || "New video" }) },
-                fields: [
-                  { type: "string", name: "embed_url", label: "YouTube embed URL (youtube-nocookie.com/embed/XXXX)" },
-                  { type: "string", name: "label", label: "Short label" },
-                ],
-              },
-              { type: "string", name: "cta_link", label: "Button link" },
-              { type: "string", name: "cta_label", label: "Button label" },
-            ],
-          },
+          { type: 'string', name: 'bandButtonLabel', label: 'Brown band button text' },
+          { type: 'string', name: 'bandButtonHref', label: 'Brown band button goes to' },
         ],
       },
-
-      // ---------- About ----------
       {
-        name: "about",
-        label: "About page",
-        path: "_data",
-        format: "json",
-        match: { include: "about" },
-        ui: { allowedActions: { create: false, delete: false } },
+        name: 'about',
+        label: 'About page',
+        path: 'content/pages',
+        format: 'json',
+        match: { include: 'about' },
+        ui: singleton,
         fields: [
-          { type: "string", name: "title", label: "Browser tab title" },
-          { type: "string", name: "description", label: "Search engine description", ui: { component: "textarea" } },
+          { type: 'string', name: 'title', label: 'Browser tab title', ui: textarea },
+          { type: 'string', name: 'description', label: 'Search engine description', ui: textarea },
           {
-            type: "object", name: "photos", label: "Top photos", list: true,
-            ui: { itemProps: (item) => ({ label: item?.alt || "Photo" }) },
+            type: 'object', name: 'photos', label: 'Photos at the top', list: true,
+            ui: { itemProps: (i: any) => ({ label: i?.alt }) },
             fields: [
-              { type: "image", name: "src", label: "Image" },
-              { type: "string", name: "alt", label: "Alt text (for screen readers)" },
+              { type: 'image', name: 'src', label: 'Photo' },
+              { type: 'string', name: 'alt', label: 'Description for screen readers' },
             ],
           },
           {
-            type: "object", name: "skill_sections", label: "Skill sections", list: true,
-            ui: { itemProps: (item) => ({ label: item?.heading || "Section" }) },
+            type: 'object', name: 'sections', label: 'Skill sections', list: true,
+            ui: { itemProps: (i: any) => ({ label: i?.heading }) },
             fields: [
-              { type: "string", name: "heading", label: "Section heading" },
+              { type: 'string', name: 'heading', label: 'Heading' },
+              { type: 'string', name: 'text', label: 'Text, if the section has no sub-parts', ui: textarea, description: 'Wrap words in **double asterisks** to bold them.' },
               {
-                type: "object", name: "subsections", label: "Subsections", list: true,
-                ui: { itemProps: (item) => ({ label: item?.subheading || "Subsection" }) },
+                type: 'object', name: 'entries', label: 'Sub-parts', list: true,
+                ui: { itemProps: (i: any) => ({ label: i?.subheading }) },
                 fields: [
-                  { type: "string", name: "subheading", label: "Subheading (optional)" },
-                  { type: "string", name: "body_html", label: "Body (allows <strong> for software names)", ui: { component: "textarea" } },
+                  { type: 'string', name: 'subheading', label: 'Sub-heading' },
+                  { type: 'string', name: 'text', label: 'Text', ui: textarea, description: 'Wrap words in **double asterisks** to bold them.' },
                 ],
               },
             ],
           },
+          { type: 'string', name: 'clientsIntro', label: 'Line above the client list', ui: textarea },
           {
-            type: "object", name: "worked_with", label: "Worked with",
-            fields: [
-              { type: "string", name: "intro_html", label: "Intro line (allows <br>)", ui: { component: "textarea" } },
-              { type: "string", name: "clients", label: "Client list", list: true },
-              { type: "string", name: "footer_html", label: "Footer line (allows <em>)", ui: { component: "textarea" } },
-            ],
+            type: 'object', name: 'clients', label: 'Clients', list: true,
+            ui: { itemProps: (i: any) => ({ label: i?.name }) },
+            fields: [{ type: 'string', name: 'name', label: 'Name' }],
           },
-          { type: "string", name: "cta_link", label: "Bottom button link" },
-          { type: "string", name: "cta_label", label: "Bottom button label" },
+          { type: 'string', name: 'clientsFooter', label: 'Line under the client list' },
+          { type: 'string', name: 'buttonLabel', label: 'Button text' },
+          { type: 'string', name: 'buttonHref', label: 'Button goes to' },
         ],
       },
-
-      // ---------- Services ----------
       {
-        name: "services",
-        label: "Services page",
-        path: "_data",
-        format: "json",
-        match: { include: "services" },
-        ui: { allowedActions: { create: false, delete: false } },
+        name: 'services',
+        label: 'Services page',
+        path: 'content/pages',
+        format: 'json',
+        match: { include: 'services' },
+        ui: singleton,
         fields: [
-          { type: "string", name: "title", label: "Browser tab title" },
-          { type: "string", name: "description", label: "Search engine description", ui: { component: "textarea" } },
+          { type: 'string', name: 'title', label: 'Browser tab title', ui: textarea },
+          { type: 'string', name: 'description', label: 'Search engine description', ui: textarea },
+          { type: 'string', name: 'headingOne', label: 'First heading', ui: textarea },
           {
-            type: "object", name: "main_sections", label: "Main sections", list: true,
-            ui: { itemProps: (item) => ({ label: item?.heading || "Section" }) },
+            type: 'object', name: 'groupOne', label: 'First three services', list: true,
+            ui: { itemProps: (i: any) => ({ label: i?.name }) },
             fields: [
-              { type: "string", name: "heading", label: "Section heading" },
-              {
-                type: "object", name: "items", label: "Service tiles", list: true,
-                ui: { itemProps: (item) => ({ label: item?.title || "Service" }) },
-                fields: [
-                  { type: "string", name: "title", label: "Service title" },
-                  { type: "string", name: "blurb", label: "One-line description" },
-                  { type: "string", name: "link", label: "Optional YouTube link" },
-                ],
-              },
+              { type: 'string', name: 'name', label: 'Service' },
+              { type: 'string', name: 'description', label: 'One line about it', ui: textarea },
+              { type: 'string', name: 'videoId', label: 'YouTube ID (optional)', description: 'The part after v= or youtu.be/. Leave empty for no link.' },
+              { type: 'string', name: 'videoTitle', label: 'Video title (unused, keep blank)' },
             ],
           },
-          { type: "string", name: "aside_heading", label: "Side-list heading" },
-          { type: "string", name: "aside_items_html", label: "Side-list items (one per line)", list: true },
-        ],
-      },
-
-      // ---------- Film ----------
-      {
-        name: "film",
-        label: "Select Film page",
-        path: "_data",
-        format: "json",
-        match: { include: "film" },
-        ui: { allowedActions: { create: false, delete: false } },
-        fields: [
-          { type: "string", name: "title", label: "Browser tab title" },
-          { type: "string", name: "description", label: "Search engine description", ui: { component: "textarea" } },
-          { type: "string", name: "heading_html", label: "Page heading (allows <br>)" },
+          { type: 'string', name: 'headingTwo', label: 'Second heading', ui: textarea },
           {
-            type: "object", name: "works", label: "Films", list: true,
-            ui: { itemProps: (item) => ({ label: item?.work_title || "Film" }) },
+            type: 'object', name: 'groupTwo', label: 'Second three services', list: true,
+            ui: { itemProps: (i: any) => ({ label: i?.name }) },
             fields: [
-              { type: "string", name: "work_title", label: "Film title (shown on page)" },
-              { type: "string", name: "embed_url", label: "YouTube embed URL (youtube-nocookie.com/embed/XXXX). Leave blank if using a video file." },
-              { type: "string", name: "embed_title", label: "Short title for the video iframe" },
-              { type: "string", name: "video_file", label: "Path to a self-hosted mp4 (optional). Prefer YouTube embeds." },
-              { type: "boolean", name: "preserve_todo", label: "Add TODO comment (for the Building a Home mp4)" },
-              { type: "string", name: "paragraphs", label: "Paragraphs below the video", list: true, ui: { component: "textarea" } },
+              { type: 'string', name: 'name', label: 'Service' },
+              { type: 'string', name: 'description', label: 'One line about it', ui: textarea },
+              { type: 'string', name: 'videoId', label: 'YouTube ID (optional)', description: 'The part after v= or youtu.be/. Leave empty for no link.' },
+              { type: 'string', name: 'videoTitle', label: 'Video title (unused, keep blank)' },
             ],
           },
+          { type: 'string', name: 'ideasHeading', label: 'Side box heading' },
+          {
+            type: 'object', name: 'ideas', label: 'Project ideas', list: true,
+            ui: { itemProps: (i: any) => ({ label: i?.text }) },
+            fields: [{ type: 'string', name: 'text', label: 'Idea' }],
+          },
+          { type: 'string', name: 'ideasFooterText', label: 'Last line of the box' },
+          { type: 'string', name: 'ideasFooterLinkLabel', label: 'Its link text' },
         ],
       },
-
-      // ---------- Video ----------
       {
-        name: "video",
-        label: "Select Video page",
-        path: "_data",
-        format: "json",
-        match: { include: "video" },
-        ui: { allowedActions: { create: false, delete: false } },
+        name: 'film',
+        label: 'Select Film page',
+        path: 'content/pages',
+        format: 'json',
+        match: { include: 'film' },
+        ui: singleton,
         fields: [
-          { type: "string", name: "title", label: "Browser tab title" },
-          { type: "string", name: "description", label: "Search engine description", ui: { component: "textarea" } },
-          { type: "string", name: "heading_html", label: "Page heading (allows <br>)" },
+          { type: 'string', name: 'title', label: 'Browser tab title', ui: textarea },
+          { type: 'string', name: 'description', label: 'Search engine description', ui: textarea },
+          { type: 'string', name: 'heading', label: 'Page heading', ui: textarea, description: 'Press Enter for a line break.' },
+          { type: 'boolean', name: 'showHeart', label: 'Show the hand drawn heart' },
           {
-            type: "object", name: "works", label: "Videos", list: true,
-            ui: { itemProps: (item) => ({ label: item?.work_title || "Video" }) },
+            type: 'object', name: 'works', label: 'Films', list: true,
+            ui: { itemProps: (i: any) => ({ label: i?.title }) },
             fields: [
-              { type: "string", name: "work_title", label: "Video title (shown on page)" },
-              { type: "string", name: "embed_url", label: "YouTube embed URL" },
-              { type: "string", name: "embed_title", label: "Short title for the video iframe" },
-              { type: "string", name: "video_file", label: "Path to a self-hosted mp4 (optional)" },
-              { type: "boolean", name: "preserve_todo", label: "Add TODO comment" },
-              { type: "string", name: "paragraphs", label: "Paragraphs below the video", list: true, ui: { component: "textarea" } },
+              { type: 'string', name: 'title', label: 'Title and year' },
+              { type: 'string', name: 'videoId', label: 'YouTube ID', description: 'The part after v= or youtu.be/. Use this when possible.' },
+              { type: 'string', name: 'videoFile', label: 'Local video file (fallback)', description: 'Use only if the film is not on YouTube. Path starts with /assets/video/.' },
+              { type: 'string', name: 'body', label: 'Description', ui: textarea, description: 'Leave a blank line between paragraphs.' },
             ],
           },
         ],
       },
-
-      // ---------- Post-production ----------
       {
-        name: "post",
-        label: "Select Post-Production page",
-        path: "_data",
-        format: "json",
-        match: { include: "post" },
-        ui: { allowedActions: { create: false, delete: false } },
+        name: 'video',
+        label: 'Select Video page',
+        path: 'content/pages',
+        format: 'json',
+        match: { include: 'video' },
+        ui: singleton,
         fields: [
-          { type: "string", name: "title", label: "Browser tab title" },
-          { type: "string", name: "description", label: "Search engine description", ui: { component: "textarea" } },
-          { type: "string", name: "heading_html", label: "Page heading (allows <br>)" },
+          { type: 'string', name: 'title', label: 'Browser tab title', ui: textarea },
+          { type: 'string', name: 'description', label: 'Search engine description', ui: textarea },
+          { type: 'string', name: 'heading', label: 'Page heading', ui: textarea, description: 'Press Enter for a line break.' },
+          { type: 'boolean', name: 'showHeart', label: 'Show the hand drawn heart' },
           {
-            type: "object", name: "works", label: "Projects", list: true,
-            ui: { itemProps: (item) => ({ label: item?.work_title || "Project" }) },
+            type: 'object', name: 'works', label: 'Videos', list: true,
+            ui: { itemProps: (i: any) => ({ label: i?.title }) },
             fields: [
-              { type: "string", name: "work_title", label: "Project title (shown on page)" },
-              { type: "string", name: "embed_url", label: "YouTube embed URL" },
-              { type: "string", name: "embed_title", label: "Short title for the video iframe" },
-              { type: "string", name: "video_file", label: "Path to a self-hosted mp4 (optional)" },
-              { type: "boolean", name: "preserve_todo", label: "Add TODO comment" },
-              { type: "string", name: "paragraphs", label: "Paragraphs below the video", list: true, ui: { component: "textarea" } },
+              { type: 'string', name: 'title', label: 'Title and year' },
+              { type: 'string', name: 'videoId', label: 'YouTube ID' },
+              { type: 'string', name: 'videoFile', label: 'Local video file (fallback)' },
+              { type: 'string', name: 'body', label: 'Description', ui: textarea, description: 'Leave a blank line between paragraphs.' },
             ],
           },
         ],
       },
-
-      // ---------- Photography ----------
       {
-        name: "photography",
-        label: "Select Photography page",
-        path: "_data",
-        format: "json",
-        match: { include: "photography" },
-        ui: { allowedActions: { create: false, delete: false } },
+        name: 'post',
+        label: 'Select Post-Production page',
+        path: 'content/pages',
+        format: 'json',
+        match: { include: 'post' },
+        ui: singleton,
         fields: [
-          { type: "string", name: "title", label: "Browser tab title" },
-          { type: "string", name: "description", label: "Search engine description", ui: { component: "textarea" } },
-          { type: "string", name: "heading", label: "Page heading" },
+          { type: 'string', name: 'title', label: 'Browser tab title', ui: textarea },
+          { type: 'string', name: 'description', label: 'Search engine description', ui: textarea },
+          { type: 'string', name: 'heading', label: 'Page heading', ui: textarea, description: 'Press Enter for a line break.' },
+          { type: 'boolean', name: 'showHeart', label: 'Show the hand drawn heart' },
           {
-            type: "object", name: "images", label: "Photos", list: true,
-            ui: { itemProps: (item) => ({ label: item?.src?.split("/").pop() || "Photo" }) },
+            type: 'object', name: 'works', label: 'Projects', list: true,
+            ui: { itemProps: (i: any) => ({ label: i?.title }) },
             fields: [
-              { type: "image", name: "src", label: "Image" },
-              { type: "string", name: "alt", label: "Alt text (for screen readers)" },
+              { type: 'string', name: 'title', label: 'Title and year' },
+              { type: 'string', name: 'videoId', label: 'YouTube ID' },
+              { type: 'string', name: 'videoFile', label: 'Local video file (fallback)' },
+              { type: 'string', name: 'body', label: 'Description', ui: textarea, description: 'Leave a blank line between paragraphs.' },
             ],
           },
         ],
       },
-
-      // ---------- Design ----------
       {
-        name: "design",
-        label: "Select Design page",
-        path: "_data",
-        format: "json",
-        match: { include: "design" },
-        ui: { allowedActions: { create: false, delete: false } },
+        name: 'photography',
+        label: 'Select Photography page',
+        path: 'content/pages',
+        format: 'json',
+        match: { include: 'photography' },
+        ui: singleton,
         fields: [
-          { type: "string", name: "title", label: "Browser tab title" },
-          { type: "string", name: "description", label: "Search engine description", ui: { component: "textarea" } },
-          { type: "string", name: "heading_html", label: "Page heading (allows <br>)" },
+          { type: 'string', name: 'title', label: 'Browser tab title', ui: textarea },
+          { type: 'string', name: 'description', label: 'Search engine description', ui: textarea },
+          { type: 'string', name: 'heading', label: 'Page heading' },
+          { type: 'string', name: 'intro', label: 'Paragraph under the heading (optional)', ui: textarea },
           {
-            type: "object", name: "images", label: "Designs", list: true,
-            ui: { itemProps: (item) => ({ label: item?.alt || "Design" }) },
+            type: 'object', name: 'photos', label: 'Photographs', list: true,
+            ui: { itemProps: (i: any) => ({ label: i?.alt }) },
             fields: [
-              { type: "image", name: "src", label: "Image" },
-              { type: "string", name: "alt", label: "Alt text (for screen readers)" },
+              { type: 'image', name: 'src', label: 'Photograph' },
+              { type: 'string', name: 'alt', label: 'Description for screen readers' },
             ],
           },
         ],
       },
-
-      // ---------- Praise ----------
       {
-        name: "praise",
-        label: "Praise and Results page",
-        path: "_data",
-        format: "json",
-        match: { include: "praise" },
-        ui: { allowedActions: { create: false, delete: false } },
+        name: 'design',
+        label: 'Select Design page',
+        path: 'content/pages',
+        format: 'json',
+        match: { include: 'design' },
+        ui: singleton,
         fields: [
-          { type: "string", name: "title", label: "Browser tab title" },
-          { type: "string", name: "description", label: "Search engine description", ui: { component: "textarea" } },
-          { type: "string", name: "big_quote", label: "Large quote at top", ui: { component: "textarea" } },
+          { type: 'string', name: 'title', label: 'Browser tab title', ui: textarea },
+          { type: 'string', name: 'description', label: 'Search engine description', ui: textarea },
+          { type: 'string', name: 'heading', label: 'Page heading', ui: textarea, description: 'Press Enter for a line break.' },
+          { type: 'string', name: 'intro', label: 'Paragraph under the heading (optional)', ui: textarea },
           {
-            type: "object", name: "praise_images", label: "Top images",
+            type: 'object', name: 'photos', label: 'Designs', list: true,
+            ui: { itemProps: (i: any) => ({ label: i?.alt }) },
             fields: [
-              {
-                type: "object", name: "logo", label: "Habitat logo",
-                fields: [
-                  { type: "image", name: "src", label: "Image" },
-                  { type: "string", name: "alt", label: "Alt text" },
-                ],
-              },
-              {
-                type: "object", name: "letter", label: "Recognition letter",
-                fields: [
-                  { type: "image", name: "src", label: "Image" },
-                  { type: "string", name: "alt", label: "Alt text" },
-                ],
-              },
-            ],
-          },
-          {
-            type: "object", name: "press", label: "Press section",
-            fields: [
-              { type: "string", name: "heading", label: "Heading" },
-              { type: "string", name: "byline", label: "Byline" },
-              { type: "string", name: "embed_url", label: "YouTube embed URL" },
-              { type: "string", name: "embed_title", label: "Short title for the video iframe" },
-              { type: "string", name: "quote_html", label: "Quote (allows &rsquo; etc.)", ui: { component: "textarea" } },
-              { type: "string", name: "source_html", label: "Source line (allows <a>)" },
-            ],
-          },
-          {
-            type: "object", name: "pictured", label: "Pictured figure",
-            fields: [
-              {
-                type: "object", name: "image", label: "Image",
-                fields: [
-                  { type: "image", name: "src", label: "Image" },
-                  { type: "string", name: "alt", label: "Alt text" },
-                ],
-              },
-              { type: "string", name: "caption_html", label: "Caption (allows <br>)", ui: { component: "textarea" } },
+              { type: 'image', name: 'src', label: 'Design' },
+              { type: 'string', name: 'alt', label: 'Description for screen readers' },
             ],
           },
         ],
       },
-
-      // ---------- Contact ----------
       {
-        name: "contact",
-        label: "Contact page",
-        path: "_data",
-        format: "json",
-        match: { include: "contact" },
-        ui: { allowedActions: { create: false, delete: false } },
+        name: 'praise',
+        label: 'Praise and Results page',
+        path: 'content/pages',
+        format: 'json',
+        match: { include: 'praise' },
+        ui: singleton,
         fields: [
-          { type: "string", name: "title", label: "Browser tab title" },
-          { type: "string", name: "description", label: "Search engine description", ui: { component: "textarea" } },
-          { type: "string", name: "heading", label: "Page heading" },
-          { type: "string", name: "intro", label: "Text above the form" },
-          { type: "string", name: "footer_note_html", label: "Text below the form (allows <em>)" },
-        ],
-      },
-
-      // ---------- Store ----------
-      {
-        name: "store",
-        label: "Store page (hidden)",
-        path: "_data",
-        format: "json",
-        match: { include: "store" },
-        ui: { allowedActions: { create: false, delete: false } },
-        fields: [
-          { type: "string", name: "title", label: "Browser tab title" },
-          { type: "string", name: "description", label: "Search engine description", ui: { component: "textarea" } },
-          { type: "string", name: "heading", label: "Page heading" },
-          { type: "string", name: "intro", label: "Intro text" },
+          { type: 'string', name: 'title', label: 'Browser tab title', ui: textarea },
+          { type: 'string', name: 'description', label: 'Search engine description', ui: textarea },
+          { type: 'string', name: 'bigQuote', label: 'Large quote at the top', ui: textarea },
           {
-            type: "object", name: "items", label: "Items for sale", list: true,
-            ui: { itemProps: (item) => ({ label: item?.caption || "Item" }) },
+            type: 'object', name: 'habitatLogo', label: 'Habitat logo (optional)',
             fields: [
-              { type: "image", name: "src", label: "Image" },
-              { type: "string", name: "caption", label: "Caption (title and price, leave blank to hide)" },
+              { type: 'image', name: 'src', label: 'Image' },
+              { type: 'string', name: 'alt', label: 'Description for screen readers' },
             ],
           },
-          { type: "string", name: "cta_link", label: "Button link" },
-          { type: "string", name: "cta_label", label: "Button label" },
+          {
+            type: 'object', name: 'habitatLetter', label: 'Habitat letter (optional)',
+            fields: [
+              { type: 'image', name: 'src', label: 'Image' },
+              { type: 'string', name: 'alt', label: 'Description for screen readers' },
+            ],
+          },
+          {
+            type: 'object', name: 'press', label: 'Press', list: true,
+            ui: { itemProps: (i: any) => ({ label: i?.heading }) },
+            fields: [
+              { type: 'string', name: 'heading', label: 'Heading' },
+              { type: 'string', name: 'byline', label: 'Byline' },
+              { type: 'string', name: 'videoId', label: 'YouTube ID', description: 'Leave empty for no video.' },
+              { type: 'string', name: 'quote', label: 'What they wrote', ui: textarea },
+              { type: 'string', name: 'sourceLabel', label: 'Publication' },
+              { type: 'string', name: 'sourceUrl', label: 'Link to the article' },
+              { type: 'string', name: 'sourceSuffix', label: 'After the link, e.g. ", 2020"' },
+            ],
+          },
+          {
+            type: 'object', name: 'picturedImage', label: 'Pictured photo (optional)',
+            fields: [
+              { type: 'image', name: 'src', label: 'Photo' },
+              { type: 'string', name: 'alt', label: 'Description for screen readers' },
+            ],
+          },
+          { type: 'string', name: 'picturedCaption', label: 'Pictured photo caption', ui: textarea, description: 'Press Enter for line breaks.' },
         ],
       },
-
-      // ---------- 404 ----------
       {
-        name: "notfound",
-        label: "404 (Page not found)",
-        path: "_data",
-        format: "json",
-        match: { include: "notfound" },
-        ui: { allowedActions: { create: false, delete: false } },
+        name: 'contact',
+        label: 'Contact page',
+        path: 'content/pages',
+        format: 'json',
+        match: { include: 'contact' },
+        ui: singleton,
         fields: [
-          { type: "string", name: "title", label: "Browser tab title" },
-          { type: "string", name: "description", label: "Search engine description" },
-          { type: "string", name: "heading", label: "Page heading" },
-          { type: "string", name: "body_html", label: "Body (allows <a>)" },
+          { type: 'string', name: 'title', label: 'Browser tab title', ui: textarea },
+          { type: 'string', name: 'description', label: 'Search engine description', ui: textarea },
+          { type: 'string', name: 'heading', label: 'Page heading' },
+          { type: 'string', name: 'subheading', label: 'Line under the heading' },
+          { type: 'string', name: 'formAction', label: 'Formspree address (optional)', description: 'Leave empty and Netlify collects the messages itself, under Forms in your Netlify dashboard. Fill in only to move to Formspree.' },
+          { type: 'string', name: 'nameLabel', label: 'Name field label' },
+          { type: 'string', name: 'emailLabel', label: 'Email field label' },
+          { type: 'string', name: 'messageLabel', label: 'Message field label' },
+          { type: 'string', name: 'submitLabel', label: 'Send button text' },
+          { type: 'string', name: 'sentMessage', label: 'Message shown after sending' },
+          { type: 'string', name: 'footerNote', label: 'Line at the bottom', description: 'Wrap words in **double asterisks** to bold them.' },
+        ],
+      },
+      {
+        name: 'store',
+        label: 'The Art Store (hidden page)',
+        path: 'content/pages',
+        format: 'json',
+        match: { include: 'store' },
+        ui: singleton,
+        fields: [
+          { type: 'string', name: 'title', label: 'Browser tab title', ui: textarea },
+          { type: 'string', name: 'description', label: 'Search engine description', ui: textarea },
+          { type: 'string', name: 'heading', label: 'Page heading' },
+          { type: 'string', name: 'intro', label: 'Paragraph under the heading', ui: textarea },
+          {
+            type: 'object', name: 'items', label: 'Items', list: true,
+            ui: { itemProps: (i: any) => ({ label: i?.caption }) },
+            fields: [
+              { type: 'image', name: 'src', label: 'Photo' },
+              { type: 'string', name: 'caption', label: 'Caption (title and price)' },
+            ],
+          },
+          { type: 'string', name: 'buttonLabel', label: 'Bottom button text' },
+          { type: 'string', name: 'buttonHref', label: 'Bottom button goes to' },
+        ],
+      },
+      {
+        name: 'notfound',
+        label: 'Page not found (404)',
+        path: 'content/pages',
+        format: 'json',
+        match: { include: 'notfound' },
+        ui: singleton,
+        fields: [
+          { type: 'string', name: 'title', label: 'Browser tab title' },
+          { type: 'string', name: 'description', label: 'Search engine description' },
+          { type: 'string', name: 'heading', label: 'Heading' },
+          { type: 'string', name: 'text', label: 'Text' },
+          { type: 'string', name: 'linkLabel', label: 'Link text' },
+          { type: 'string', name: 'linkHref', label: 'Link goes to' },
         ],
       },
     ],

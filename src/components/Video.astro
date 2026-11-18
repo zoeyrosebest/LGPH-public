@@ -1,0 +1,30 @@
+---
+// A YouTube embed when there is an ID, or a local <video> when the project
+// has a file (currently the two mp4s Wix hosted). Shows nothing if both
+// are empty, so pages stay text only until something is filled in.
+interface Props {
+  id?: string;
+  file?: string;
+  title?: string;
+}
+const { id, file, title = '' } = Astro.props;
+---
+{
+  id ? (
+    <div class="video">
+      <iframe
+        src={`https://www.youtube-nocookie.com/embed/${id}`}
+        title={title}
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      />
+    </div>
+  ) : file ? (
+    <div class="video">
+      <video controls preload="metadata" title={title}>
+        <source src={file} type="video/mp4" />
+      </video>
+    </div>
+  ) : null
+}

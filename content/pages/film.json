@@ -1,0 +1,32 @@
+{
+  "title": "Select Film | LGPH",
+  "description": "Selected short films by Zoey Rose Best for Long Gone Production Home.",
+  "heading": "Selected Films by Zoey Rose Best for\nLong Gone Production Home",
+  "showHeart": true,
+  "works": [
+    {
+      "title": "Lithium, 2020",
+      "videoId": "0ye3DSUZLmY",
+      "videoFile": "",
+      "body": "An experimental drama written, directed, shot, and edited by Zoey Rose Best.\n\nLithium follows Elle in her downfall and recovery whilst living with Bipolar II\n\nStaring Alyssa Berman as Elle."
+    },
+    {
+      "title": "Feminism From The Pole, 2017",
+      "videoId": "kC8tMa5y0VI",
+      "videoFile": "",
+      "body": "A short drama written, directed, shot, and edited by Zoey Rose Best.\n\nWhen Troy threatens to reveal Ivy, who is behind the controversial blog 'From the Pole', she must decide if her anonymity is worth her pride.\n\nStaring Gabi Gambino as Ivy."
+    },
+    {
+      "title": "Addicted a Latte, 2016",
+      "videoId": "Piqui06-vQA",
+      "videoFile": "",
+      "body": "A comedic- documentary created and edited by Zoey Rose Best.\n\nA silly and intimate look into the lives of 4 college students and their relationship to caffeine.\n\nFeaturing Arielle Rebekah, Raechel Sontag, Dan McElrone, and Katie McGee."
+    },
+    {
+      "title": "Building a Home, 2013",
+      "videoId": "",
+      "videoFile": "/assets/video/building-a-home-2013.mp4",
+      "body": "A documentary-short Written, Directed, Shot, and Edited by Zoey Rose Best\n\nThis film follows a weekend Habitat for Humanity build.\n\nTODO: this 64 MB file was hosted by Wix. Consider uploading it to YouTube and pasting the ID above."
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+---
+// Hidden from the menu on the Wix version (reachable only by its link).
+// Kept hidden here too — the nav in content/settings.json doesn't list it.
+import Base from '../../layouts/Base.astro';
+import Gallery from '../../components/Gallery.astro';
+import page from '../../../content/pages/store.json';
+
+const photos = page.items.map((i) => ({ src: i.src, alt: i.caption || 'Gallery image', caption: i.caption }));
+---
+<Base title={page.title} description={page.description}>
+  <h1 class="page-heading">{page.heading}</h1>
+  <p class="center">{page.intro}</p>
+  <Gallery photos={photos} extraClass="store-grid" />
+  <p class="center"><a class="button" href={page.buttonHref}>{page.buttonLabel}</a></p>
+</Base>

@@ -1,0 +1,50 @@
+---
+import Base from '../../layouts/Base.astro';
+import Video from '../../components/Video.astro';
+import page from '../../../content/pages/praise.json';
+import { inline } from '../../lib/text';
+---
+<Base title={page.title} description={page.description} current="/praise-and-results/">
+  <section class="praise-top">
+    <blockquote class="big-quote">{page.bigQuote}</blockquote>
+    {
+      (page.habitatLogo?.src || page.habitatLetter?.src) && (
+        <div class="praise-images">
+          {page.habitatLogo?.src && (
+            <img src={page.habitatLogo.src} alt={page.habitatLogo.alt} class="habitat-logo" />
+          )}
+          {page.habitatLetter?.src && (
+            <a href={page.habitatLetter.src} class="lightbox">
+              <img src={page.habitatLetter.src} alt={page.habitatLetter.alt} class="letter" />
+            </a>
+          )}
+        </div>
+      )
+    }
+  </section>
+
+  {
+    page.press?.map((p) => (
+      <section class="press-box">
+        <h2>{p.heading}</h2>
+        <p class="byline">{p.byline}</p>
+        <Video id={p.videoId} title={p.heading} />
+        <blockquote>
+          <p>{p.quote}</p>
+          <footer>
+            <a href={p.sourceUrl} target="_blank" rel="noopener">{p.sourceLabel}</a>{p.sourceSuffix}
+          </footer>
+        </blockquote>
+      </section>
+    ))
+  }
+
+  {
+    page.picturedImage?.src && (
+      <figure class="pictured">
+        <img src={page.picturedImage.src} alt={page.picturedImage.alt} />
+        <figcaption set:html={inline(page.picturedCaption)} />
+      </figure>
+    )
+  }
+</Base>

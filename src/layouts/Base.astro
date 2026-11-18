@@ -1,0 +1,153 @@
+---
+import '../styles/style.css';
+import settings from '../../content/settings.json';
+import { inline } from '../lib/text';
+
+interface Props {
+  title: string;
+  description: string;
+  current?: string;
+}
+const { title, description, current } = Astro.props;
+
+// Absolute addresses, which is what search engines and link previews want.
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const shareImage = new URL('/assets/img/lgph-logo.png', Astro.site).href;
+
+// Tells Google this is Zoey's creative practice, who runs it and where.
+// Only on the homepage, so it is stated once for the whole site.
+const business = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: settings.siteTitle,
+  alternateName: 'LGPH',
+  description:
+    'A NJ-based production company specializing in visual and artistic communications. Design work, videography and photography, internal and external project development.',
+  url: Astro.site?.href,
+  email: settings.email,
+  image: shareImage,
+  founder: { '@type': 'Person', name: 'Zoey Rose Best', jobTitle: 'Filmmaker and Editor' },
+  address: { '@type': 'PostalAddress', addressRegion: 'NJ', addressCountry: 'US' },
+  areaServed: { '@type': 'State', name: 'New Jersey' },
+  sameAs: settings.social.map((s) => s.url),
+  knowsAbout: [
+    'Short film',
+    'Video art',
+    'Documentary',
+    'Music video',
+    'Photography',
+    'Graphic design',
+  ],
+};
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={shareImage} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:site_name" content={settings.siteTitle} />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={shareImage} />
+  <link rel="canonical" href={canonical} />
+  <link rel="icon" href="/assets/img/lgph-logo.png" />
+  {
+    Astro.url.pathname === '/' && (
+      <script type="application/ld+json" set:html={JSON.stringify(business)} />
+    )
+  }
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,200;0,300;0,400;1,200;1,300;1,400&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <a class="site-title" href="/">{settings.siteTitle}</a>
+      <p class="site-subtitle" set:html={inline(settings.subtitle)} />
+    </div>
+    <div class="motto">
+      <a href="/"
+        ><img
+          src="/assets/img/lgph-logo.png"
+          alt="LGPH logo: a small house with the letters L G P H"
+          width="73"
+          height="73"
+        /></a
+      >
+      <p class="motto-quote">{settings.mottoQuote}</p>
+      <p class="motto-line" set:html={inline(settings.mottoLine)} />
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="site-nav" aria-label="Main menu">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="menu">Menu</button>
+      <ul id="menu">
+        {
+          settings.nav.map((item) => (
+            <li>
+              <a href={item.href} aria-current={item.href === current ? 'page' : undefined}>
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+        {
+          settings.commercialSiteUrl && (
+            <li class="nav-other">
+              <a href={settings.commercialSiteUrl} target="_blank" rel="noopener">{settings.commercialSiteLabel}</a>
+            </li>
+          )
+        }
+      </ul>
+    </nav>
+
+    <main>
+      <slot />
+    </main>
+  </div>
+
+  <slot name="full-width" />
+
+  <footer class="site-footer">
+    <p>
+      <Fragment set:html={inline(settings.footerNote)} />
+      <a href={settings.footerLinkHref}>{settings.footerLinkLabel}</a>
+    </p>
+    <div class="footer-row">
+      <form action="https://www.paypal.com/donate" method="post" target="_blank" class="donate">
+        <input type="hidden" name="business" value={settings.paypalBusiness} />
+        <input type="hidden" name="currency_code" value="USD" />
+        <input type="hidden" name="item_name" value={settings.paypalItemName} />
+        <button type="submit">Donate with PayPal</button>
+      </form>
+      <ul class="social">
+        {
+          settings.social.map((s) => (
+            <li>
+              <a href={s.url} target="_blank" rel="noopener">
+                {s.icon ? <img src={s.icon} alt={s.label} width="39" height="39" /> : s.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+    <p class="copyright">&copy; {settings.copyright}</p>
+  </footer>
+  <script src="/js/site.js" is:inline></script>
+</body>
+</html>

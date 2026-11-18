@@ -1,0 +1,25 @@
+---
+// A list of film/video/post-production projects. Each one has a title, a
+// video (YouTube embed if there's an ID, local mp4 if there's a file), and
+// some body paragraphs.
+import Video from './Video.astro';
+import { paragraphs } from '../lib/text';
+
+interface Props {
+  works: { title: string; videoId?: string; videoFile?: string; body?: string }[];
+}
+const { works } = Astro.props;
+---
+{
+  works.map((w) => (
+    <article class="work">
+      <Video id={w.videoId} file={w.videoFile} title={w.title} />
+      <div class="work-text">
+        <h2>{w.title}</h2>
+        {paragraphs(w.body || '').map((html) => (
+          <p set:html={html} />
+        ))}
+      </div>
+    </article>
+  ))
+}

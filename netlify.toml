@@ -1,6 +1,9 @@
+# Deploying to Netlify: connect this repo, Netlify reads the rest from here.
+# Set TINA_CLIENT_ID and TINA_TOKEN in Site settings > Environment variables,
+# using the values TinaCloud gives you.
 [build]
-  command = "npm run tina:build"
-  publish = "_site"
+  command = "npm run build"
+  publish = "dist"
 
 [build.environment]
-  NODE_VERSION = "20"
+  NODE_VERSION = "22"

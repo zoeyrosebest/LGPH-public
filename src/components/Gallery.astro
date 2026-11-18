@@ -1,0 +1,23 @@
+---
+// A click-to-enlarge grid. Used by the Select Photography, Select Design
+// and Art Store pages. An optional caption shows under each image.
+interface Props {
+  photos: { src: string; alt: string; caption?: string }[];
+  extraClass?: string;
+}
+const { photos, extraClass = 'masonry' } = Astro.props;
+---
+{
+  photos.length > 0 && (
+    <div class={`gallery ${extraClass}`}>
+      {photos.map((p) => (
+        <figure>
+          <a href={p.src} class="lightbox">
+            <img src={p.src} alt={p.alt || p.caption || 'Gallery image'} loading="lazy" />
+            {p.caption && <figcaption>{p.caption}</figcaption>}
+          </a>
+        </figure>
+      ))}
+    </div>
+  )
+}

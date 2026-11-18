@@ -1,0 +1,41 @@
+---
+import Base from '../layouts/Base.astro';
+import page from '../../content/pages/about.json';
+import { inline } from '../lib/text';
+---
+<Base title={page.title} description={page.description} current="/about/">
+  {
+    page.photos?.length > 0 && (
+      <div class="about-photos">
+        {page.photos.map((p) => <img src={p.src} alt={p.alt} />)}
+      </div>
+    )
+  }
+
+  <section class="skills">
+    {
+      page.sections.map((section) => (
+        <Fragment>
+          <h2>{section.heading}</h2>
+          {section.text && <p set:html={inline(section.text)} />}
+          {section.entries?.map((entry) => (
+            <Fragment>
+              <h3>{entry.subheading}</h3>
+              <p set:html={inline(entry.text)} />
+            </Fragment>
+          ))}
+        </Fragment>
+      ))
+    }
+  </section>
+
+  <section class="worked-with">
+    <p set:html={inline(page.clientsIntro)} />
+    <ul>
+      {page.clients.map((c) => <li>{c.name}</li>)}
+    </ul>
+    <p><em>{page.clientsFooter}</em></p>
+  </section>
+
+  <p class="center"><a class="button" href={page.buttonHref}>{page.buttonLabel}</a></p>
+</Base>

@@ -1,0 +1,31 @@
+{
+  "siteTitle": "Long Gone Production Home",
+  "subtitle": "Film &\nVisual Communications by Zoey Rose Best",
+  "mottoQuote": "\"Not a Production House, but a Home\"",
+  "mottoLine": "Producing messages for\nthe Present & Future",
+  "nav": [
+    { "label": "Home", "href": "/" },
+    { "label": "Services", "href": "/services/" },
+    { "label": "Select Film", "href": "/video-portfolio/" },
+    { "label": "Select Video", "href": "/copy-of-film-portfolio/" },
+    { "label": "Select Post-Production", "href": "/copy-of-film-portfolio-1/" },
+    { "label": "Select Photography", "href": "/photography-portfolio/" },
+    { "label": "Select Design", "href": "/design-portfolio/" },
+    { "label": "Praise and Results", "href": "/praise-and-results/" },
+    { "label": "Contact", "href": "/contact/" }
+  ],
+  "commercialSiteLabel": "lgphcommercial.com",
+  "commercialSiteUrl": "https://lgphcommercial.netlify.app",
+  "footerNote": "If you wish to collaborate or invest in my services,\nfeel welcome to",
+  "footerLinkLabel": "contact me",
+  "footerLinkHref": "/contact/",
+  "email": "zoeyrosebest@gmail.com",
+  "social": [
+    { "label": "Instagram", "url": "https://www.instagram.com/longgoneproductionhome/", "icon": "/assets/img/icon-instagram.png" },
+    { "label": "Facebook", "url": "https://www.facebook.com/profile.php?id=100089631727125", "icon": "/assets/img/icon-facebook.png" },
+    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/zoey-rose-best-851163144/", "icon": "/assets/img/icon-linkedin.png" }
+  ],
+  "paypalBusiness": "zoeyrosebest@gmail.com",
+  "paypalItemName": "Long Gone Production Home",
+  "copyright": "Long Gone Production Home"
+}

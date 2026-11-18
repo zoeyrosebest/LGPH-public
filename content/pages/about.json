@@ -1,0 +1,46 @@
+{
+  "title": "About | LGPH",
+  "description": "About Zoey Rose Best, filmmaker and visual communicator behind Long Gone Production Home.",
+  "photos": [
+    { "src": "/assets/img/about-zoey-video-shoot.jpg", "alt": "Zoey, a female, queer filmmaker looking into a camera during a video shoot" },
+    { "src": "/assets/img/about-zoey-blue-light-set.jpg", "alt": "Zoey, a female, queer, filmmaker looking into a camera on a film set that is lit with blue lights" }
+  ],
+  "sections": [
+    {
+      "heading": "VIDEO and EDITING",
+      "text": "",
+      "entries": [
+        { "subheading": "Pre-Production", "text": "Producer, Screenwriter, **Celtx** & **Final Draft**" },
+        { "subheading": "Production", "text": "Camera Operator: DSLR HD/4K, Blackmagic & Drone, Cinematographer, Director, Lighting & Set Designer" },
+        { "subheading": "Post-Production", "text": "Video Editor, **Adobe Premiere Pro/ After Effects**, **Final Cut Pro 7**, Sound Designer/ Corrector, **Pro Tools** & **Adobe Audition**" }
+      ]
+    },
+    {
+      "heading": "DESIGN and PHOTOGRAPHY",
+      "text": "",
+      "entries": [
+        { "subheading": "Graphic Design", "text": "Typographer, **Adobe Illustrator** Promotional Content Designer, **Quark X Press**, Website Designer & Online Marketing Content Creator" },
+        { "subheading": "Photography", "text": "35mm Film & Digital Photography, Film Developer & Adobe **Photoshop**" }
+      ]
+    },
+    { "heading": "DANCE and THEATER PRODUCTION", "text": "House Manager, Production Video/ Sound Recorder & Production Sales/ Marketing Developer", "entries": [] },
+    { "heading": "PERFORMANCE and CREW", "text": "Director, Actor trained with the Stanislavski Method, Stage Manager, Light Designer/ Rigger & Costume/ Makeup Designer", "entries": [] },
+    { "heading": "WORKPLACE and LIFE SKILLS", "text": "Empathetic Leader, Intuitive Instructor, Creative Brainstormer & Developer, Strength in High-Pressure Environments, Organized with Coinciding Projects & Deadlines, Excellent Verbal & Writing Skills, First Aid/CPR/AED Trained", "entries": [] }
+  ],
+  "clientsIntro": "I have had the pleasure of working with some amazing people,\nnon-profits, and companies including:",
+  "clients": [
+    { "name": "Morris Habitat for Humanity" },
+    { "name": "D-Scape Interactive" },
+    { "name": "Tiffany and Co." },
+    { "name": "The Kresge & Pascal Galleries at Ramapo College" },
+    { "name": "Transition Professionals" },
+    { "name": "Catbridge Machinery" },
+    { "name": "The Vito Marcantonio Forum" },
+    { "name": "The FWRD Collective" },
+    { "name": "Danse Lumière" },
+    { "name": "Djerassi Resident Artists Program" }
+  ],
+  "clientsFooter": "References & CV proudly available upon request",
+  "buttonLabel": "Click to view the Services Page",
+  "buttonHref": "/services/"
+}
