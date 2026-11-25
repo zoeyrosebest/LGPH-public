@@ -5,104 +5,76 @@
   "intro": "Fine Art with Upcycled Incorporations. Contact me to make a purchase",
   "items": [
     {
-      "caption": "Lighter Guard at $40",
-      "media": [{ "type": "image", "src": "/assets/img/store-01-lighter-guard-at-40.jpg", "alt": "Lighter Guard at $40" }]
+      "caption": "Blue Gnarley Headed Clay Pendant with Custom Beaded Chain — $100",
+      "media": [
+        { "type": "image", "src": "/assets/img/store/blue-gnarley-01.jpg", "alt": "Blue Gnarley Headed Clay Pendant" },
+        { "type": "image", "src": "/assets/img/store/blue-gnarley-02.jpg", "alt": "Blue Gnarley pendant full necklace" },
+        { "type": "image", "src": "/assets/img/store/blue-gnarley-03.jpg", "alt": "Blue Gnarley pendant close-up" }
+      ]
     },
     {
-      "caption": "Lighter Guard #2 $40",
-      "media": [{ "type": "image", "src": "/assets/img/store-02-lighter-guard-2-40.jpg", "alt": "Lighter Guard #2 $40" }]
+      "caption": "Orange Dagger Necklace with Custom Beaded Chain — $100",
+      "media": [
+        { "type": "image", "src": "/assets/img/store/orange-dagger-01.jpg", "alt": "Orange Dagger Necklace" },
+        { "type": "image", "src": "/assets/img/store/orange-dagger-02.jpg", "alt": "Orange Dagger Necklace detail" }
+      ]
     },
     {
-      "caption": "Lighter Guard #3 $40",
-      "media": [{ "type": "image", "src": "/assets/img/store-03-lighter-guard-3-40.jpg", "alt": "Lighter Guard #3 $40" }]
+      "caption": "Purple Man Pendant — $100",
+      "media": [
+        { "type": "image", "src": "/assets/img/store/purple-man-pendant-01.jpg", "alt": "Purple Man Pendant" },
+        { "type": "image", "src": "/assets/img/store/purple-man-pendant-02.jpg", "alt": "Purple Man Pendant close-up" },
+        { "type": "image", "src": "/assets/img/store/purple-man-pendant-03.jpg", "alt": "Purple Man Pendant on chain" }
+      ]
     },
     {
-      "caption": "Dickies Winter Socks, Bleached on top of plants. $15",
-      "media": [{ "type": "image", "src": "/assets/img/store-04-dickies-winter-socks-bleached-on-top-of.jpg", "alt": "Dickies Winter Socks, bleached on top of plants" }]
+      "caption": "Too Close Hair Pins — $25",
+      "media": [
+        { "type": "image", "src": "/assets/img/store/too-close-hair-pins-01.jpg", "alt": "Too Close hair pins" },
+        { "type": "image", "src": "/assets/img/store/too-close-hair-pins-02.jpg", "alt": "Too Close hair pins detail" }
+      ]
     },
     {
-      "caption": "Vagina Earrings with crystals. Custom colors Available. All 4 imaged available at $30 each",
-      "media": [{ "type": "image", "src": "/assets/img/store-05-vagina-earrings-with-crystals-custom-col.jpg", "alt": "Vagina Earrings with crystals" }]
+      "caption": "Integrity Wallet Chain — $55",
+      "media": [
+        { "type": "image", "src": "/assets/img/store/integrity-wallet-chain-01.jpg", "alt": "Integrity wallet chain" },
+        { "type": "image", "src": "/assets/img/store/integrity-wallet-chain-02.jpg", "alt": "Integrity wallet chain detail" }
+      ]
     },
     {
-      "caption": "",
-      "media": [{ "type": "image", "src": "/assets/img/store-06.jpg", "alt": "Store item" }]
+      "caption": "Pinky Clip — $30",
+      "media": [
+        { "type": "image", "src": "/assets/img/store/pinky-clip-01.jpg", "alt": "Pinky clip" },
+        { "type": "image", "src": "/assets/img/store/pinky-clip-02.jpg", "alt": "Pinky clip detail" }
+      ]
     },
     {
-      "caption": "Collage Bookmarks. Both Available. $30 each",
-      "media": [{ "type": "image", "src": "/assets/img/store-07-collage-bookmarks-both-available-30-each.jpg", "alt": "Collage Bookmarks" }]
+      "caption": "Amethyst Bracelet — $25",
+      "media": [
+        { "type": "image", "src": "/assets/img/store/amethyst-bracelet-01.jpg", "alt": "Amethyst bracelet" }
+      ]
     },
     {
-      "caption": "Sunglasses $30",
-      "media": [{ "type": "image", "src": "/assets/img/store-08-sunglasses-30.jpg", "alt": "Sunglasses" }]
+      "caption": "Crystal Dangling Earrings — $18 (multiple styles available)",
+      "media": [
+        { "type": "image", "src": "/assets/img/store/crystal-dangling-earrings-01.jpg", "alt": "Crystal dangling earrings — style 1" },
+        { "type": "image", "src": "/assets/img/store/crystal-dangling-earrings-02.jpg", "alt": "Crystal dangling earrings — style 2" },
+        { "type": "image", "src": "/assets/img/store/crystal-dangling-earrings-03.jpg", "alt": "Crystal dangling earrings — style 3" }
+      ]
     },
     {
-      "caption": "Sunglasses, angle 2. $30",
-      "media": [{ "type": "image", "src": "/assets/img/store-09-sunglasses-angle-2-30.jpg", "alt": "Sunglasses, angle 2" }]
-    },
-    {
-      "caption": "all 5 potion bottles available for $15 each. Strung.",
-      "media": [{ "type": "image", "src": "/assets/img/store-10-all-5-potion-bottles-available-for-15-ea.jpg", "alt": "All 5 potion bottles" }]
-    },
-    {
-      "caption": "",
-      "media": [{ "type": "image", "src": "/assets/img/store-11.jpg", "alt": "Store item" }]
-    },
-    {
-      "caption": "Mermaid Grip on Crystal. $30",
-      "media": [{ "type": "image", "src": "/assets/img/store-12-mermaid-grip-on-crystal-30.jpg", "alt": "Mermaid Grip on Crystal" }]
-    },
-    {
-      "caption": "Hairclip $20",
-      "media": [{ "type": "image", "src": "/assets/img/store-13-hairclip-20.jpg", "alt": "Hairclip" }]
-    },
-    {
-      "caption": "Turquoise Set $20, or $10 each.",
-      "media": [{ "type": "image", "src": "/assets/img/store-14-turquoise-set-20-or-10-each.jpg", "alt": "Turquoise Set" }]
-    },
-    {
-      "caption": "Delicate Beaded Necklace. $30",
-      "media": [{ "type": "image", "src": "/assets/img/store-15-delicate-beaded-necklace-30.jpg", "alt": "Delicate Beaded Necklace" }]
-    },
-    {
-      "caption": "",
-      "media": [{ "type": "image", "src": "/assets/img/store-16.jpg", "alt": "Store item" }]
-    },
-    {
-      "caption": "",
-      "media": [{ "type": "image", "src": "/assets/img/store-17.jpg", "alt": "Store item" }]
-    },
-    {
-      "caption": "Original Available",
-      "media": [{ "type": "image", "src": "/assets/img/store-18-original-available.jpg", "alt": "Original Available" }]
-    },
-    {
-      "caption": "Original Available",
-      "media": [{ "type": "image", "src": "/assets/img/store-19-original-available.jpg", "alt": "Original Available" }]
-    },
-    {
-      "caption": "Original Available",
-      "media": [{ "type": "image", "src": "/assets/img/store-20-original-available.jpg", "alt": "Original Available" }]
-    },
-    {
-      "caption": "Original Available",
-      "media": [{ "type": "image", "src": "/assets/img/store-21-original-available.jpg", "alt": "Original Available" }]
-    },
-    {
-      "caption": "Prints available for $15",
-      "media": [{ "type": "image", "src": "/assets/img/store-22-prints-available-for-15.jpg", "alt": "Prints available" }]
-    },
-    {
-      "caption": "Prints available for $15",
-      "media": [{ "type": "image", "src": "/assets/img/store-23-prints-available-for-15.jpg", "alt": "Prints available" }]
-    },
-    {
-      "caption": "Original Available",
-      "media": [{ "type": "image", "src": "/assets/img/store-24-original-available.jpg", "alt": "Original Available" }]
-    },
-    {
-      "caption": "Original Available",
-      "media": [{ "type": "image", "src": "/assets/img/store-25-original-available.jpg", "alt": "Original Available" }]
+      "caption": "Vagina Earrings — $30 (each pair unique, multiple available)",
+      "media": [
+        { "type": "image", "src": "/assets/img/store/vagina-earrings-01.jpg", "alt": "Vagina earrings pair 1" },
+        { "type": "image", "src": "/assets/img/store/vagina-earrings-02.jpg", "alt": "Vagina earrings pair 2" },
+        { "type": "image", "src": "/assets/img/store/vagina-earrings-03.jpg", "alt": "Vagina earrings pair 3" },
+        { "type": "image", "src": "/assets/img/store/vagina-earrings-04.jpg", "alt": "Vagina earrings pair 4" },
+        { "type": "image", "src": "/assets/img/store/vagina-earrings-05.jpg", "alt": "Vagina earrings pair 5" },
+        { "type": "image", "src": "/assets/img/store/vagina-earrings-06.jpg", "alt": "Vagina earrings pair 6" },
+        { "type": "image", "src": "/assets/img/store/vagina-earrings-07.jpg", "alt": "Vagina earrings pair 7" },
+        { "type": "image", "src": "/assets/img/store/vagina-earrings-08.jpg", "alt": "Vagina earrings pair 8" },
+        { "type": "image", "src": "/assets/img/store/vagina-earrings-09.jpg", "alt": "Vagina earrings pair 9" }
+      ]
     }
   ],
   "buttonLabel": "Contact Me",
