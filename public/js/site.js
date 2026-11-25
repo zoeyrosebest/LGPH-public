@@ -11,18 +11,56 @@
   });
 })();
 
-// 2) Lightbox: click a gallery image to see it large. Arrow keys / Esc work too.
+// 2) Lightbox: click a gallery thumbnail to see it large. Supports images
+// and short videos. On the photography/design pages each anchor has its own
+// media and prev/next walks across all thumbnails on the page. On the store
+// each anchor carries a data-media="[{type,src,alt,poster}, ...]" list and
+// prev/next walks within that item's media only.
 (function () {
   var links = Array.prototype.slice.call(document.querySelectorAll('a.lightbox'));
   if (!links.length) return;
-  var box, imgEl, index = 0;
+
+  var box;
+  var mediaList = [];
+  var index = 0;
+
+  function parseDataMedia(a) {
+    var raw = a.getAttribute('data-media');
+    if (!raw) return null;
+    try {
+      var arr = JSON.parse(raw);
+      return Array.isArray(arr) && arr.length ? arr : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  function render() {
+    if (!box) return;
+    var m = mediaList[index];
+    var stage = box.querySelector('.lb-stage');
+    stage.innerHTML = '';
+    var el;
+    if (m.type === 'video') {
+      el = document.createElement('video');
+      el.src = m.src;
+      el.controls = true;
+      el.autoplay = true;
+      el.loop = true;
+      el.playsInline = true;
+      el.muted = true; // allow autoplay
+      if (m.poster) el.poster = m.poster;
+    } else {
+      el = document.createElement('img');
+      el.src = m.src;
+      el.alt = m.alt || '';
+    }
+    stage.appendChild(el);
+  }
 
   function show(i) {
-    index = (i + links.length) % links.length;
-    var a = links[index];
-    var thumb = a.querySelector('img');
-    imgEl.src = a.getAttribute('href');
-    imgEl.alt = thumb ? thumb.alt : '';
+    index = (i + mediaList.length) % mediaList.length;
+    render();
   }
   function close() {
     if (box) { box.remove(); box = null; document.removeEventListener('keydown', onKey); }
@@ -32,26 +70,53 @@
     if (e.key === 'ArrowRight') show(index + 1);
     if (e.key === 'ArrowLeft') show(index - 1);
   }
-  function open(i) {
+  function open(list, i) {
+    mediaList = list;
+    index = i;
     box = document.createElement('div');
     box.className = 'lb';
     box.setAttribute('role', 'dialog');
     box.setAttribute('aria-modal', 'true');
-    box.innerHTML = '<img alt=""><button class="lb-close" aria-label="Close">&times;</button>' +
-      (links.length > 1 ? '<button class="lb-prev" aria-label="Previous">&#8249;</button><button class="lb-next" aria-label="Next">&#8250;</button>' : '');
-    imgEl = box.querySelector('img');
+    box.innerHTML = '<div class="lb-stage"></div>' +
+      '<button class="lb-close" aria-label="Close">&times;</button>' +
+      (mediaList.length > 1
+        ? '<button class="lb-prev" aria-label="Previous">&#8249;</button><button class="lb-next" aria-label="Next">&#8250;</button>'
+        : '');
     box.addEventListener('click', function (e) {
       if (e.target.classList.contains('lb-prev')) { show(index - 1); return; }
       if (e.target.classList.contains('lb-next')) { show(index + 1); return; }
-      if (e.target !== imgEl) close();
+      if (e.target.classList.contains('lb-close')) { close(); return; }
+      // clicking the dark backdrop closes; clicking the media does nothing
+      if (e.target === box) close();
     });
     document.body.appendChild(box);
     document.addEventListener('keydown', onKey);
-    show(i);
+    render();
     box.querySelector('.lb-close').focus();
   }
+
+  // Build the fallback list (all images on the page, in order) for anchors
+  // that carry no data-media attribute. That keeps the photography and
+  // design pages working exactly as before.
+  var fallbackList = links.map(function (a) {
+    var thumb = a.querySelector('img');
+    return {
+      type: 'image',
+      src: a.getAttribute('href'),
+      alt: thumb ? thumb.alt : '',
+    };
+  });
+
   links.forEach(function (a, i) {
-    a.addEventListener('click', function (e) { e.preventDefault(); open(i); });
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var list = parseDataMedia(a);
+      if (list) {
+        open(list, 0);
+      } else {
+        open(fallbackList, i);
+      }
+    });
   });
 })();
 
