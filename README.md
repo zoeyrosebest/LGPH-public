@@ -131,10 +131,25 @@ Two separate parts, worth keeping apart:
 - **Fonts:** Wix used licensed fonts (Brandon Grotesque / Avenir). This site
   uses the free Google font *Barlow*, which looks very similar.
 - **Building a Home (2013)** — see the "Putting videos back" section above.
-- **The Art Store** page had no checkout on Wix either. It still shows the
-  items and prices with a "contact me to purchase" line.
+- **The Art Store** page had no checkout on Wix. Each item can now optionally
+  carry a Square **Buy Button** that shows under its photo; items without one
+  still fall through to the page-wide "Contact Me" button. See **Store checkout**
+  below.
 - Not copied: the unfinished draft page "copy-of-photography-portfolio" and an
   empty Wix "fullscreen-page".
+
+## Store checkout
+
+Sign up for **Square Online** (free plan, unlimited products, pay only per sale)
+and — for shirts, pillows and prints — **Printful** (free, connects to Square
+via its App Marketplace; Printful prints and ships each order so you never touch
+inventory). Both are free up front.
+
+For each product, in Square's dashboard go to **Online → Items → (your item) →
+Share → Buy Button** and copy the HTML it gives you. In Tina, open **The Art
+Store**, click the item, paste it into **Buy Button HTML (optional)**, and save.
+The button appears under that item's photo on the live site the next time it
+rebuilds. Items with no button fall back to the page's "Contact Me" link.
 
 ## Commands
 

@@ -384,6 +384,12 @@ export default defineConfig({
             fields: [
               { type: 'image', name: 'src', label: 'Photo' },
               { type: 'string', name: 'caption', label: 'Caption (title and price)' },
+              {
+                type: 'string', name: 'buyButtonHtml',
+                label: 'Buy Button HTML (optional)',
+                description: 'Paste the Buy Button HTML from Square → Online → Items → (your item) → Share → Buy Button. Leave blank and buyers will use the Contact Me button at the bottom instead.',
+                ui: textarea,
+              },
             ],
           },
           { type: 'string', name: 'buttonLabel', label: 'Bottom button text' },
