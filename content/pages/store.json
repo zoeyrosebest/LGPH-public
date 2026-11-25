@@ -5,6 +5,55 @@
   "intro": "Fine Art with Upcycled Incorporations. Contact me to make a purchase",
   "items": [
     {
+      "caption": "Beadboi Lighter Case — $55",
+      "media": [
+        { "type": "image", "src": "/assets/img/store/beadboi-01.jpg", "alt": "Beadboi lighter case" },
+        { "type": "video", "src": "/assets/video/store/beadboi.mp4", "poster": "/assets/img/store/beadboi-01.jpg" }
+      ]
+    },
+    {
+      "caption": "Crystalboi Lighter Case — $55",
+      "media": [
+        { "type": "image", "src": "/assets/img/store/crystalboi-01.jpg", "alt": "Crystalboi lighter case" },
+        { "type": "video", "src": "/assets/video/store/crystalboi.mp4", "poster": "/assets/img/store/crystalboi-01.jpg" }
+      ]
+    },
+    {
+      "caption": "Purple Queen Lighter Case — $70",
+      "media": [
+        { "type": "image", "src": "/assets/img/store/purplequeen-01.jpg", "alt": "Purple Queen lighter case" },
+        { "type": "video", "src": "/assets/video/store/purplequeen.mp4", "poster": "/assets/img/store/purplequeen-01.jpg" }
+      ]
+    },
+    {
+      "caption": "Kiki Wawa Lighter Case — $70",
+      "media": [
+        { "type": "image", "src": "/assets/img/store/kikiwawa-01.jpg", "alt": "Kiki Wawa lighter case" },
+        { "type": "video", "src": "/assets/video/store/kikiwawa.mp4", "poster": "/assets/img/store/kikiwawa-01.jpg" }
+      ]
+    },
+    {
+      "caption": "Pink Green Lighter Case — $70",
+      "media": [
+        { "type": "image", "src": "/assets/img/store/pinkgreen-01.jpg", "alt": "Pink Green lighter case" },
+        { "type": "video", "src": "/assets/video/store/pinkgreen.mp4", "poster": "/assets/img/store/pinkgreen-01.jpg" }
+      ]
+    },
+    {
+      "caption": "Pink Punk Lighter Case — $70",
+      "media": [
+        { "type": "image", "src": "/assets/img/store/pinkpunk-01.jpg", "alt": "Pink Punk lighter case" },
+        { "type": "video", "src": "/assets/video/store/pinkpunk.mp4", "poster": "/assets/img/store/pinkpunk-01.jpg" }
+      ]
+    },
+    {
+      "caption": "Tree Man Dropper Bottle — $70",
+      "media": [
+        { "type": "image", "src": "/assets/img/store/treeman-01.jpg", "alt": "Tree Man dropper bottle" },
+        { "type": "video", "src": "/assets/video/store/treeman.mp4", "poster": "/assets/img/store/treeman-01.jpg" }
+      ]
+    },
+    {
       "caption": "Blue Gnarley Headed Clay Pendant with Custom Beaded Chain — $100",
       "media": [
         { "type": "image", "src": "/assets/img/store/blue-gnarley-01.jpg", "alt": "Blue Gnarley Headed Clay Pendant" },
