@@ -380,10 +380,29 @@ export default defineConfig({
           { type: 'string', name: 'intro', label: 'Paragraph under the heading', ui: textarea },
           {
             type: 'object', name: 'items', label: 'Items', list: true,
-            ui: { itemProps: (i: any) => ({ label: i?.caption }) },
+            ui: { itemProps: (i: any) => ({ label: i?.caption || i?.media?.[0]?.src || 'Untitled item' }) },
             fields: [
-              { type: 'image', name: 'src', label: 'Photo' },
               { type: 'string', name: 'caption', label: 'Caption (title and price)' },
+              {
+                type: 'object', name: 'media', label: 'Photos and videos', list: true,
+                description: 'Each item can have one or more photos and short videos. The first one is the thumbnail in the grid; the rest open in a lightbox when the thumbnail is clicked.',
+                ui: { itemProps: (m: any) => ({ label: m?.src || m?.type || 'Media' }) },
+                fields: [
+                  {
+                    type: 'string', name: 'type', label: 'Type',
+                    options: [
+                      { value: 'image', label: 'Photo' },
+                      { value: 'video', label: 'Short video (autoplay, no sound)' },
+                    ],
+                  },
+                  {
+                    type: 'image', name: 'src', label: 'File',
+                    description: 'For photos upload a JPG or PNG. For videos the path is /assets/video/<file>.mp4 (uploaded via GitHub).',
+                  },
+                  { type: 'string', name: 'alt', label: 'Alt text (photos only)', description: 'Short description for screen readers and if the photo fails to load.' },
+                  { type: 'image', name: 'poster', label: 'Poster image (videos only)', description: 'Optional still frame shown before the video starts playing.' },
+                ],
+              },
               {
                 type: 'string', name: 'buyButtonHtml',
                 label: 'Buy Button HTML (optional)',

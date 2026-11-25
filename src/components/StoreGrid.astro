@@ -1,0 +1,72 @@
+---
+// The store grid. Each item has one or more media (photos and/or short
+// autoplay videos). The first media is the thumbnail. Clicking the tile
+// opens a lightbox that steps through the rest of that item's media.
+// If an item carries a Buy Button HTML snippet, it renders under the caption,
+// outside the lightbox link, so clicking it goes to checkout instead.
+
+type Media = { type: 'image' | 'video'; src: string; alt?: string; poster?: string };
+type Item = { caption?: string; media: Media[]; buyButtonHtml?: string };
+
+interface Props {
+  items: Item[];
+}
+
+const { items } = Astro.props;
+
+function toDataMedia(media: Media[]): string {
+  return JSON.stringify(
+    media.map((m) => ({
+      type: m.type,
+      src: m.src,
+      alt: m.alt || '',
+      poster: m.poster || '',
+    })),
+  );
+}
+---
+{
+  items.length > 0 && (
+    <div class="gallery store-grid">
+      {items.map((item) => {
+        const media = (item.media || []).filter((m) => m && m.src);
+        if (media.length === 0) return null;
+        const first = media[0];
+        const extra = media.length - 1;
+        return (
+          <figure>
+            <a
+              href={first.src}
+              class="lightbox"
+              data-media={toDataMedia(media)}
+              aria-label={item.caption || 'Store item'}
+            >
+              <div class="store-thumb">
+                {first.type === 'video' ? (
+                  <video
+                    src={first.src}
+                    poster={first.poster || undefined}
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    preload="metadata"
+                  />
+                ) : (
+                  <img
+                    src={first.src}
+                    alt={first.alt || item.caption || 'Store item'}
+                    loading="lazy"
+                  />
+                )}
+                {extra > 0 && <span class="store-more">+{extra}</span>}
+              </div>
+              {item.caption && <figcaption>{item.caption}</figcaption>}
+            </a>
+            {item.buyButtonHtml && <div class="store-buy" set:html={item.buyButtonHtml} />}
+          </figure>
+        );
+      })}
+    </div>
+  )
+}

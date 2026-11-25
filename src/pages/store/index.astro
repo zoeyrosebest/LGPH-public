@@ -2,19 +2,28 @@
 // Hidden from the menu on the Wix version (reachable only by its link).
 // Kept hidden here too — the nav in content/settings.json doesn't list it.
 import Base from '../../layouts/Base.astro';
-import Gallery from '../../components/Gallery.astro';
+import StoreGrid from '../../components/StoreGrid.astro';
 import page from '../../../content/pages/store.json';
 
-const photos = page.items.map((i) => ({
-  src: i.src,
-  alt: i.caption || 'Gallery image',
-  caption: i.caption,
-  buyButtonHtml: (i as { buyButtonHtml?: string }).buyButtonHtml,
-}));
+type Media = { type: 'image' | 'video'; src: string; alt?: string; poster?: string };
+type Item = { caption?: string; media?: Media[]; src?: string; buyButtonHtml?: string };
+
+// Backwards-compat: items that still carry the old single `src` get wrapped
+// into a one-image media array on the fly, so old data keeps rendering.
+const items = (page.items as Item[]).map((i) => {
+  if (i.media && i.media.length) return i as Item & { media: Media[] };
+  if (i.src) {
+    return {
+      ...i,
+      media: [{ type: 'image' as const, src: i.src, alt: i.caption || 'Store item' }],
+    };
+  }
+  return { ...i, media: [] as Media[] };
+});
 ---
 <Base title={page.title} description={page.description}>
   <h1 class="page-heading">{page.heading}</h1>
   <p class="center">{page.intro}</p>
-  <Gallery photos={photos} extraClass="store-grid" />
+  <StoreGrid items={items} />
   <p class="center"><a class="button" href={page.buttonHref}>{page.buttonLabel}</a></p>
 </Base>

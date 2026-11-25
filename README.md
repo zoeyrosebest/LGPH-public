@@ -151,6 +151,18 @@ Store**, click the item, paste it into **Buy Button HTML (optional)**, and save.
 The button appears under that item's photo on the live site the next time it
 rebuilds. Items with no button fall back to the page's "Contact Me" link.
 
+### Multiple photos and short videos per item
+
+Each store item carries a **Photos and videos** list. The first entry is the
+thumbnail in the grid; a small `+N` badge marks items with more. Clicking the
+thumbnail opens a lightbox with arrow buttons to flip through the rest.
+
+Short autoplay videos (10–15 seconds, silent, no controls on the tile) go in
+the same list — pick **Short video** as the type. Upload the file to
+`public/assets/video/` via GitHub (Tina's uploader handles images only) and
+point the item's `src` field at `/assets/video/<your-file>.mp4`. Keep each
+clip under ~5 MB (short, modest resolution) so the page stays fast.
+
 ## Commands
 
 | Command | What it does |

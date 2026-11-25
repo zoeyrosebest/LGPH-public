@@ -4,31 +4,106 @@
   "heading": "The Art Store...",
   "intro": "Fine Art with Upcycled Incorporations. Contact me to make a purchase",
   "items": [
-    { "src": "/assets/img/store-01-lighter-guard-at-40.jpg", "caption": "Lighter Guard at $40" },
-    { "src": "/assets/img/store-02-lighter-guard-2-40.jpg", "caption": "Lighter Guard #2 $40" },
-    { "src": "/assets/img/store-03-lighter-guard-3-40.jpg", "caption": "Lighter Guard #3 $40" },
-    { "src": "/assets/img/store-04-dickies-winter-socks-bleached-on-top-of.jpg", "caption": "Dickies Winter Socks, Bleached on top of plants. $15" },
-    { "src": "/assets/img/store-05-vagina-earrings-with-crystals-custom-col.jpg", "caption": "Vagina Earrings with crystals. Custom colors Available. All 4 imaged available at $30 each" },
-    { "src": "/assets/img/store-06.jpg", "caption": "" },
-    { "src": "/assets/img/store-07-collage-bookmarks-both-available-30-each.jpg", "caption": "Collage Bookmarks. Both Available. $30 each" },
-    { "src": "/assets/img/store-08-sunglasses-30.jpg", "caption": "Sunglasses $30" },
-    { "src": "/assets/img/store-09-sunglasses-angle-2-30.jpg", "caption": "Sunglasses, angle 2. $30" },
-    { "src": "/assets/img/store-10-all-5-potion-bottles-available-for-15-ea.jpg", "caption": "all 5 potion bottles available for $15 each. Strung." },
-    { "src": "/assets/img/store-11.jpg", "caption": "" },
-    { "src": "/assets/img/store-12-mermaid-grip-on-crystal-30.jpg", "caption": "Mermaid Grip on Crystal. $30" },
-    { "src": "/assets/img/store-13-hairclip-20.jpg", "caption": "Hairclip $20" },
-    { "src": "/assets/img/store-14-turquoise-set-20-or-10-each.jpg", "caption": "Turquoise Set $20, or $10 each." },
-    { "src": "/assets/img/store-15-delicate-beaded-necklace-30.jpg", "caption": "Delicate Beaded Necklace. $30" },
-    { "src": "/assets/img/store-16.jpg", "caption": "" },
-    { "src": "/assets/img/store-17.jpg", "caption": "" },
-    { "src": "/assets/img/store-18-original-available.jpg", "caption": "Original Available" },
-    { "src": "/assets/img/store-19-original-available.jpg", "caption": "Original Available" },
-    { "src": "/assets/img/store-20-original-available.jpg", "caption": "Original Available" },
-    { "src": "/assets/img/store-21-original-available.jpg", "caption": "Original Available" },
-    { "src": "/assets/img/store-22-prints-available-for-15.jpg", "caption": "Prints available for $15" },
-    { "src": "/assets/img/store-23-prints-available-for-15.jpg", "caption": "Prints available for $15" },
-    { "src": "/assets/img/store-24-original-available.jpg", "caption": "Original Available" },
-    { "src": "/assets/img/store-25-original-available.jpg", "caption": "Original Available" }
+    {
+      "caption": "Lighter Guard at $40",
+      "media": [{ "type": "image", "src": "/assets/img/store-01-lighter-guard-at-40.jpg", "alt": "Lighter Guard at $40" }]
+    },
+    {
+      "caption": "Lighter Guard #2 $40",
+      "media": [{ "type": "image", "src": "/assets/img/store-02-lighter-guard-2-40.jpg", "alt": "Lighter Guard #2 $40" }]
+    },
+    {
+      "caption": "Lighter Guard #3 $40",
+      "media": [{ "type": "image", "src": "/assets/img/store-03-lighter-guard-3-40.jpg", "alt": "Lighter Guard #3 $40" }]
+    },
+    {
+      "caption": "Dickies Winter Socks, Bleached on top of plants. $15",
+      "media": [{ "type": "image", "src": "/assets/img/store-04-dickies-winter-socks-bleached-on-top-of.jpg", "alt": "Dickies Winter Socks, bleached on top of plants" }]
+    },
+    {
+      "caption": "Vagina Earrings with crystals. Custom colors Available. All 4 imaged available at $30 each",
+      "media": [{ "type": "image", "src": "/assets/img/store-05-vagina-earrings-with-crystals-custom-col.jpg", "alt": "Vagina Earrings with crystals" }]
+    },
+    {
+      "caption": "",
+      "media": [{ "type": "image", "src": "/assets/img/store-06.jpg", "alt": "Store item" }]
+    },
+    {
+      "caption": "Collage Bookmarks. Both Available. $30 each",
+      "media": [{ "type": "image", "src": "/assets/img/store-07-collage-bookmarks-both-available-30-each.jpg", "alt": "Collage Bookmarks" }]
+    },
+    {
+      "caption": "Sunglasses $30",
+      "media": [{ "type": "image", "src": "/assets/img/store-08-sunglasses-30.jpg", "alt": "Sunglasses" }]
+    },
+    {
+      "caption": "Sunglasses, angle 2. $30",
+      "media": [{ "type": "image", "src": "/assets/img/store-09-sunglasses-angle-2-30.jpg", "alt": "Sunglasses, angle 2" }]
+    },
+    {
+      "caption": "all 5 potion bottles available for $15 each. Strung.",
+      "media": [{ "type": "image", "src": "/assets/img/store-10-all-5-potion-bottles-available-for-15-ea.jpg", "alt": "All 5 potion bottles" }]
+    },
+    {
+      "caption": "",
+      "media": [{ "type": "image", "src": "/assets/img/store-11.jpg", "alt": "Store item" }]
+    },
+    {
+      "caption": "Mermaid Grip on Crystal. $30",
+      "media": [{ "type": "image", "src": "/assets/img/store-12-mermaid-grip-on-crystal-30.jpg", "alt": "Mermaid Grip on Crystal" }]
+    },
+    {
+      "caption": "Hairclip $20",
+      "media": [{ "type": "image", "src": "/assets/img/store-13-hairclip-20.jpg", "alt": "Hairclip" }]
+    },
+    {
+      "caption": "Turquoise Set $20, or $10 each.",
+      "media": [{ "type": "image", "src": "/assets/img/store-14-turquoise-set-20-or-10-each.jpg", "alt": "Turquoise Set" }]
+    },
+    {
+      "caption": "Delicate Beaded Necklace. $30",
+      "media": [{ "type": "image", "src": "/assets/img/store-15-delicate-beaded-necklace-30.jpg", "alt": "Delicate Beaded Necklace" }]
+    },
+    {
+      "caption": "",
+      "media": [{ "type": "image", "src": "/assets/img/store-16.jpg", "alt": "Store item" }]
+    },
+    {
+      "caption": "",
+      "media": [{ "type": "image", "src": "/assets/img/store-17.jpg", "alt": "Store item" }]
+    },
+    {
+      "caption": "Original Available",
+      "media": [{ "type": "image", "src": "/assets/img/store-18-original-available.jpg", "alt": "Original Available" }]
+    },
+    {
+      "caption": "Original Available",
+      "media": [{ "type": "image", "src": "/assets/img/store-19-original-available.jpg", "alt": "Original Available" }]
+    },
+    {
+      "caption": "Original Available",
+      "media": [{ "type": "image", "src": "/assets/img/store-20-original-available.jpg", "alt": "Original Available" }]
+    },
+    {
+      "caption": "Original Available",
+      "media": [{ "type": "image", "src": "/assets/img/store-21-original-available.jpg", "alt": "Original Available" }]
+    },
+    {
+      "caption": "Prints available for $15",
+      "media": [{ "type": "image", "src": "/assets/img/store-22-prints-available-for-15.jpg", "alt": "Prints available" }]
+    },
+    {
+      "caption": "Prints available for $15",
+      "media": [{ "type": "image", "src": "/assets/img/store-23-prints-available-for-15.jpg", "alt": "Prints available" }]
+    },
+    {
+      "caption": "Original Available",
+      "media": [{ "type": "image", "src": "/assets/img/store-24-original-available.jpg", "alt": "Original Available" }]
+    },
+    {
+      "caption": "Original Available",
+      "media": [{ "type": "image", "src": "/assets/img/store-25-original-available.jpg", "alt": "Original Available" }]
+    }
   ],
   "buttonLabel": "Contact Me",
   "buttonHref": "/contact/"
